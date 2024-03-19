@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class LookAtCamera : MonoBehaviour
+public class LookAtCamera : MonoBehaviour //Unused
 {
-    void Update()
+    /*void Update()
     {
         Camera mainCamera = Camera.main;
 
@@ -14,5 +14,5 @@ public class LookAtCamera : MonoBehaviour
         {
             Debug.LogWarning("Main camera not found.");
         }
-    }
+    }*/
 }

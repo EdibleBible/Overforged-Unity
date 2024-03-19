@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CurrentLevelInfo", menuName = "ScriptableObjects/CurrentLevelInfo")]
-public class CurrentLevelInfo : ScriptableObject
+public class CurrentLevelInfo : ScriptableObject //Holds the information about the current level or game play session
 {
     public int currentLevelScore;
     public int currentLevel;

@@ -1,13 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadingScreenBehavior : MonoBehaviour
+public class LoadingScreenBehavior : MonoBehaviour //Unused
 {
-
     [SerializeField] private float loadingTime = 5f;
     private float remainingTime;
     private Image fillImage;
