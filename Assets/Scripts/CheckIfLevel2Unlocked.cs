@@ -18,4 +18,4 @@ public class CheckIfLevel2Unlocked : MonoBehaviour
             buttonToHide.SetActive(false);
         }
     }
-}
+} // do wyebania

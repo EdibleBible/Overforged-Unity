@@ -15,4 +15,4 @@ public class LookAtCamera : MonoBehaviour
             Debug.LogWarning("Main camera not found.");
         }
     }
-}
+} //do wyebania

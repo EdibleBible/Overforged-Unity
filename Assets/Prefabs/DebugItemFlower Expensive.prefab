@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 325009734264780466}
   - component: {fileID: 8292472384173573775}
   - component: {fileID: 2108216137062259205}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DebugItemFlower Expensive
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 66
   m_IsActive: 1
 --- !u!4 &3911503501800229680
 Transform:
@@ -59,10 +59,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &8292472384173573775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,12 +94,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 1, y: 1.2613362, z: 1}
+  m_Center: {x: 0, y: 0.6737841, z: 0}
 --- !u!1 &4251471836774315030
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,12 +111,12 @@ GameObject:
   - component: {fileID: 6699246695560878839}
   - component: {fileID: 2755115260882980974}
   - component: {fileID: 1214691558421563719}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 66
   m_IsActive: 1
 --- !u!4 &6699246695560878839
 Transform:
@@ -286,6 +286,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: deaec9ad8222b9647a6c44a45140f423,
         type: 3}
+      propertyPath: m_MotionVectors
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: deaec9ad8222b9647a6c44a45140f423,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 127d4b0b3dce9714d99fde20a2fe6c52, type: 2}
@@ -293,6 +298,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rose
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: deaec9ad8222b9647a6c44a45140f423,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: deaec9ad8222b9647a6c44a45140f423,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
