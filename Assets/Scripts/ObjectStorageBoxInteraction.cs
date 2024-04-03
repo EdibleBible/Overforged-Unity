@@ -27,7 +27,7 @@ public class ObjectStorageBoxInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerTrigger != null)
+        if (Input.GetKeyDown(KeyCode.E) && playerTrigger != null && !playerTrigger.GetComponent<PlayerPickUpItem>().areHandsFull)
         {
             storageBoxItem = storageBoxItemList[Random.Range(0, storageBoxItemList.Count)];
 

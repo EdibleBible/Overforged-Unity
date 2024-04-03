@@ -26,10 +26,10 @@ public class PlayerPickUpItem : MonoBehaviour
             DropItem();
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && heldItem != null && slotInRange != null && areHandsFull)
+/*        if (Input.GetKeyDown(KeyCode.E) && heldItem != null && slotInRange != null && areHandsFull)
         {
             PutDownItem();
-        }
+        }*/
     }
 
     public void PickUpItem()
