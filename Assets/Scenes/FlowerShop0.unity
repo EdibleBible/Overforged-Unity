@@ -5401,7 +5401,12 @@ PrefabInstance:
     - target: {fileID: 4857220644750292027, guid: 3ee0a5f89785f81459e2e9212e327eac,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857220644750292027, guid: 3ee0a5f89785f81459e2e9212e327eac,
+        type: 3}
+      propertyPath: pickupLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 8791608219772406434, guid: 3ee0a5f89785f81459e2e9212e327eac,
         type: 3}
@@ -7163,7 +7168,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940997058}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55db8f88c06c6684f8fac26893d6ba57, type: 3}
   m_Name: 

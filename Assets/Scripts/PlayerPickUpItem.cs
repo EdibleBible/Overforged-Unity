@@ -5,48 +5,26 @@ using UnityEngine;
 
 public class PlayerPickUpItem : MonoBehaviour
 {
-    [SerializeField] private GameObject itemInRange; //Item that collides with the player collider
     private GameObject slotInRange; //Item slot that collider with player collider
     public GameObject heldItem; //Reference to the item that is being held by the player
     [SerializeField] private GameObject heldItemSlot; //
     [SerializeField] public bool areHandsFull;
     [SerializeField] private GameObject storageBoxItem;
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Item"))
-        {
-            itemInRange = null;
-        }
-        if (other.CompareTag("Slot"))
-        {
-            slotInRange = null;
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Item"))
-        {
-            itemInRange = other.gameObject;
-        }
-        if (other.CompareTag("Slot"))
-        {
-            slotInRange = other.gameObject;
-        }
-    }
+    public float pickupRange = 1f;
+    public LayerMask pickupLayers;
 
     void Update()
     {
         // Check if the player is pressing the Q key and an item is in range
-        if (Input.GetKeyDown(KeyCode.Q) && itemInRange != null && !areHandsFull)
+        if (Input.GetKeyDown(KeyCode.Q) && !areHandsFull)
         {
-            PickUpItem(itemInRange);
+            PickUpItem();
         }
-        //else if (Input.GetKeyDown(KeyCode.Q) && heldItem != null && areHandsFull)
-        //{
-        //    DropItem();
-        //}
+        else if (Input.GetKeyDown(KeyCode.Q) && heldItem != null && areHandsFull)
+        {
+            DropItem();
+        }
 
         if (Input.GetKeyDown(KeyCode.E) && heldItem != null && slotInRange != null && areHandsFull)
         {
@@ -54,27 +32,34 @@ public class PlayerPickUpItem : MonoBehaviour
         }
     }
 
-    public void PickUpItem(GameObject item)
+    public void PickUpItem()
     {
-        // Disable the collider of the item
-        Collider itemCollider = item.GetComponent<Collider>();
+        Collider[] nearbyColliders = Physics.OverlapSphere(transform.position, pickupRange, pickupLayers);
+        if (nearbyColliders.Length > 0)
+        {
+            // Disable the collider of the item
+        Collider itemCollider = nearbyColliders[0];
         if (itemCollider != null)
         {
             itemCollider.enabled = false;
         }
 
         // Disable gravity for the item's Rigidbody
-        Rigidbody itemRigidbody = item.GetComponent<Rigidbody>();
+        Rigidbody itemRigidbody = itemCollider.GetComponent<Rigidbody>();
         if (itemRigidbody != null)
         {
             itemRigidbody.useGravity = false;
+            itemRigidbody.isKinematic = true;
         }
 
-        heldItem = item;
-        item.transform.SetParent(this.gameObject.transform);
-        item.transform.position = this.transform.position;
+        heldItem = itemCollider.gameObject;
+            itemCollider.transform.SetParent(this.gameObject.transform);
+            itemCollider.transform.position = this.transform.position;
         areHandsFull = true;
-        Debug.Log("Picked up: " + item.name);
+        Debug.Log("Picked up: " + itemCollider.name);
+        }
+
+       
     }
 
     void DropItem()
@@ -91,6 +76,7 @@ public class PlayerPickUpItem : MonoBehaviour
         if (itemRigidbody != null)
         {
             itemRigidbody.useGravity = true;
+            itemRigidbody.isKinematic = false;
         }
 
         heldItem.transform.SetParent(null);
