@@ -10,7 +10,7 @@ public class PlayerPickUpItem : MonoBehaviour
     [SerializeField] private GameObject heldItemSlot; //
     [SerializeField] public bool areHandsFull;
     [SerializeField] private GameObject storageBoxItem;
-
+    public GameObject playerObject;
     public float pickupRange = 1f;
     public LayerMask pickupLayers;
 

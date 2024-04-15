@@ -57,7 +57,7 @@ public class ObjectCraftingStationBouquetUse : MonoBehaviour
             else if (itemCraftingBouquet.craftingStationInventory.Count == 3 && playerPickUpItem.areHandsFull == false)
             {
                 flowerParticles.Play();
-                itemCraftingBouquet.BeginCrafting(playerPickUpItem, dummyBouquet);
+                itemCraftingBouquet.BeginCrafting(playerPickUpItem, dummyBouquet, playerPickUpItem.playerObject);
             }
 
             playerPickUpItem.heldItem = null;

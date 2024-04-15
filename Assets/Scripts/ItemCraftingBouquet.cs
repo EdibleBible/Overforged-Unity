@@ -14,6 +14,7 @@ public class ItemCraftingBouquet : MonoBehaviour
     private GameObject heldItem;
     private bool ribbonIn;
     [SerializeField] private ParticleSystem smokeParticles;
+    private float playerWalkingSpeedMemory;
 
 
     public void AddItemToInventory(GameObject heldItem)
@@ -22,18 +23,21 @@ public class ItemCraftingBouquet : MonoBehaviour
         flowerIconSlots[(craftingStationInventory.Count)-1].GetComponent<SpriteRenderer>().sprite = heldItem.GetComponent<ItemBaseScript>().itemIcon;
     }
 
-    public void BeginCrafting(PlayerPickUpItem playerPickUpItem, GameObject dummyBouquet)
+    public void BeginCrafting(PlayerPickUpItem playerPickUpItem, GameObject dummyBouquet, GameObject playerObject)
     {
-        StartCoroutine(DelayedExecution(playerPickUpItem, dummyBouquet));
+        playerWalkingSpeedMemory = playerObject.GetComponent<PlayerMovement>().playerWalkingSpeed;
+        playerObject.GetComponent<PlayerMovement>().playerWalkingSpeed = 0;
+        StartCoroutine(DelayedExecution(playerPickUpItem, dummyBouquet, playerObject));
         foreach (var icon in flowerIconSlots)
         {
             icon.GetComponent<SpriteRenderer>().sprite = null;
         }
     }
 
-    IEnumerator DelayedExecution(PlayerPickUpItem playerPickUpItem, GameObject dummyBouquet)
+    IEnumerator DelayedExecution(PlayerPickUpItem playerPickUpItem, GameObject dummyBouquet, GameObject playerObject)
     {
         yield return new WaitForSeconds(timeToCraft);
+        playerObject.GetComponent<PlayerMovement>().playerWalkingSpeed = playerWalkingSpeedMemory;
 
         dummyBouquet.SetActive(false);
         foreach (GameObject item in craftingStationInventory)
