@@ -35,7 +35,10 @@ public class PickAndDrop : MonoBehaviour
             heldItem = nearbyColliders[0].gameObject;
             heldItem.transform.SetParent(transform);
             heldItem.transform.localPosition = new Vector3(0, 0.5f, 1);
-            heldItem.GetComponent<Rigidbody>().isKinematic = true;
+            if (heldItem.TryGetComponent<Rigidbody>(out Rigidbody rgbody))
+            {
+                rgbody.isKinematic = true;
+            }
             heldItem.GetComponent<BoxCollider>().enabled = false;
             holdingItem = true;
         }
@@ -45,7 +48,10 @@ public class PickAndDrop : MonoBehaviour
     {
         heldItem.transform.SetParent(null);
         heldItem.GetComponent<BoxCollider>().enabled = true;
-        heldItem.GetComponent<Rigidbody>().isKinematic = false;
+        if (heldItem.TryGetComponent<Rigidbody>(out Rigidbody rgbody))
+        {
+            rgbody.isKinematic = false;
+        }
         heldItem = null;
         holdingItem = false;
     }
