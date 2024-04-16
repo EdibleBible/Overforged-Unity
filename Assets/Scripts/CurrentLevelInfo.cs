@@ -7,6 +7,8 @@ public class CurrentLevelInfo : ScriptableObject //Holds the information about t
     public int currentLevel;
     public int bouquetsShipped;
     public int bouquetsShippedRibbon;
-    public bool levelTwoUnlocked;
-    public bool levelTwoFinished;
+    public bool levelTwoUnlocked; // Radek powiedzia³, ¿e do wyjebania
+    public bool levelTwoFinished; // to te¿
+
+    // bazowe info o lvl
 }
