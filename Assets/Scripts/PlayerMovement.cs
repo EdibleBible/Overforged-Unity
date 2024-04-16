@@ -1,15 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float playerWalkingSpeed = 5f;
-    [SerializeField] GameObject playerModel;
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject playerModel; //Only the player model is being rotated while the player object doesnt
 
     void Update()
     {
@@ -17,10 +11,9 @@ public class PlayerMovement : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * playerWalkingSpeed * Time.deltaTime;
-        if (movement != Vector3.zero)
+        if (movement != Vector3.zero) //If the player is moving
         {
-            // Rotate the player to face the movement direction
-            playerModel.transform.rotation = Quaternion.LookRotation(movement);
+            playerModel.transform.rotation = Quaternion.LookRotation(movement); // Rotate the player model to face the movement direction
         }
 
         transform.Translate(movement);

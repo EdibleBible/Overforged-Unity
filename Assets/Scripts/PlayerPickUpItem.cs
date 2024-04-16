@@ -3,16 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPickUpItem : MonoBehaviour
+public class PlayerPickUpItem : MonoBehaviour //Plz rewrite
 {
     [SerializeField] private GameObject itemInRange; //Item that collides with the player collider
     private GameObject slotInRange; //Item slot that collider with player collider
     public GameObject heldItem; //Reference to the item that is being held by the player
-    [SerializeField] private GameObject heldItemSlot; //
-    [SerializeField] public bool areHandsFull;
-    [SerializeField] private GameObject storageBoxItem;
+    [SerializeField] private GameObject heldItemSlot; //GameObject where the player has the item that is held
+    [SerializeField] public bool areHandsFull; //Protection check to make sure only one item is held
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other) //Clears the variables below when leaving a collider
     {
         if (other.CompareTag("Item"))
         {
@@ -24,7 +23,7 @@ public class PlayerPickUpItem : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other) //Assigns the GameObject colliding with the player's collider to the proper type of variable
     {
         if (other.CompareTag("Item"))
         {
@@ -38,16 +37,13 @@ public class PlayerPickUpItem : MonoBehaviour
 
     void Update()
     {
-        // Check if the player is pressing the Q key and an item is in range
+        // Check if the player is pressing the Q key & an item is in range & no item is held
         if (Input.GetKeyDown(KeyCode.Q) && itemInRange != null && !areHandsFull)
         {
             PickUpItem(itemInRange);
         }
-        //else if (Input.GetKeyDown(KeyCode.Q) && heldItem != null && areHandsFull)
-        //{
-        //    DropItem();
-        //}
 
+        // Check if the player is pressing the E key & a slot is in range & an item is held
         if (Input.GetKeyDown(KeyCode.E) && heldItem != null && slotInRange != null && areHandsFull)
         {
             PutDownItem();
@@ -70,9 +66,9 @@ public class PlayerPickUpItem : MonoBehaviour
             itemRigidbody.useGravity = false;
         }
 
-        heldItem = item;
-        item.transform.SetParent(this.gameObject.transform);
-        item.transform.position = this.transform.position;
+        heldItem = item; //References the held item GameObject to this variable for later use
+        item.transform.SetParent(this.gameObject.transform); //Sets the parent of the held item GameObject to be the player
+        item.transform.position = this.transform.position; //Teleports the picked up item to the player item slot
         areHandsFull = true;
         Debug.Log("Picked up: " + item.name);
     }
@@ -93,10 +89,10 @@ public class PlayerPickUpItem : MonoBehaviour
             itemRigidbody.useGravity = true;
         }
 
-        heldItem.transform.SetParent(null);
+        heldItem.transform.SetParent(null); //The player is no longer the parent of the dropped item
         areHandsFull = false;
         Debug.Log("Dropped: " + heldItem.name);
-        heldItem = null;
+        heldItem = null; //Removes the reference to the previously held item
     }
 
     void PutDownItem()
@@ -115,11 +111,11 @@ public class PlayerPickUpItem : MonoBehaviour
             itemRigidbody.useGravity = true;
         }
 
-        heldItem.transform.SetParent(slotInRange.transform);
-        heldItem.transform.position = slotInRange.transform.position;
-        heldItem.transform.rotation = new Quaternion(0,0,0,0);
+        heldItem.transform.SetParent(slotInRange.transform); //Sets the parent of the held item GameObject to be the slot of the object the item is placed on
+        heldItem.transform.position = slotInRange.transform.position; //Teleports the picked up item to the object item slot
+        heldItem.transform.rotation = new Quaternion(0,0,0,0); //Resets item rotation
         areHandsFull = false;
         Debug.Log("Put down: " + heldItem.name);
-        heldItem = null;
+        heldItem = null; //Removes the reference to the previously held item
     }
 }

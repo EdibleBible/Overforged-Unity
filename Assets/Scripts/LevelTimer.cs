@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -52,7 +51,7 @@ public class LevelTimer : MonoBehaviour
 
     public void FinishLevel()
     {
-        Time.timeScale = 0f;
-        SceneManager.LoadScene("Scenes/UIFinishLevel", LoadSceneMode.Additive);
+        Time.timeScale = 0f; //Stops the game clock
+        SceneManager.LoadScene("Scenes/UIFinishLevel", LoadSceneMode.Additive); //Loads the Level Finish scene on top
     }
 }
