@@ -6,13 +6,13 @@ public class ForgeCraftingTable : MonoBehaviour
 {
     enum CrafterState { ReadyForItems, ReadyToCraft, Crafting, ReadyToPickUp };
     CrafterState crafterState = CrafterState.ReadyForItems;
+    [SerializeField] private GameObject stickSlot;
+    [SerializeField] private GameObject toolHeadSlot;
+    [SerializeField] private float timeToCraft = 1f;
     private GameObject playerTrigger;
     private PlayerPickUpItem playerPickUpItem;
     private GameObject stickObjectReference;
     private GameObject toolHeadObjectReference;
-    [SerializeField] private GameObject stickSlot;
-    [SerializeField] private GameObject toolHeadSlot;
-    [SerializeField] private float timeToCraft = 1f;
     private float playerWalkingSpeedMemory;
 
     void OnTriggerExit(Collider other)
@@ -59,7 +59,7 @@ public class ForgeCraftingTable : MonoBehaviour
                     {
                         playerWalkingSpeedMemory = playerPickUpItem.playerObject.GetComponent<PlayerMovement>().playerWalkingSpeed;
                         playerPickUpItem.playerObject.GetComponent<PlayerMovement>().playerWalkingSpeed = 0;
-                        StartCoroutine(DelayedExecution(playerPickUpItem, dummyBouquet, playerObject));
+                        StartCoroutine(CraftingCoroutine(playerPickUpItem, dummyBouquet, playerObject));
                         break;
                     }
             }
@@ -85,27 +85,15 @@ public class ForgeCraftingTable : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToCraft);
         playerPickUpItem.playerObject.GetComponent<PlayerMovement>().playerWalkingSpeed = playerWalkingSpeedMemory;
+        
+        if (toolHeadObjectReference.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.IronAxeHead)
+        {
+            Instantiate(toolHeadObjectReference);
+        }
+        
 
-        dummyBouquet.SetActive(false);
-        foreach (GameObject item in craftingStationInventory)
-        {
-            if (item.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.Ribbon)
-            {
-                ribbonIn = true;
-                break;
-            }
-        }
-        if (ribbonIn)
-        {
-            heldItem = Instantiate(itemBouquetRibbon, this.transform);
-            ribbonIn = false;
-        }
-        else
-        {
-            heldItem = Instantiate(itemBouquet, this.transform);
-        }
-
-        smokeParticles.Play();
+        
+        ClearCraftingTableInventory();
 
         foreach (GameObject item in craftingStationInventory)
         {
