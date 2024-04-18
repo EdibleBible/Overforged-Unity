@@ -8,12 +8,16 @@ public class ForgeCraftingTable : MonoBehaviour
     CrafterState crafterState = CrafterState.ReadyForItems;
     [SerializeField] private GameObject stickSlot;
     [SerializeField] private GameObject toolHeadSlot;
+    [SerializeField] private GameObject instantiateSlot;
     [SerializeField] private float timeToCraft = 1f;
+    [SerializeField] private GameObject toolAxePrefab;
+    [SerializeField] private GameObject toolPickPrefab;
     private GameObject playerTrigger;
     private PlayerPickUpItem playerPickUpItem;
     private GameObject stickObjectReference;
     private GameObject toolHeadObjectReference;
     private float playerWalkingSpeedMemory;
+    private GameObject instantiatedTool;
 
     void OnTriggerExit(Collider other)
     {
@@ -46,10 +50,12 @@ public class ForgeCraftingTable : MonoBehaviour
                             ItemTypes.ItemType heldItemType = playerPickUpItem.heldItem.GetComponent<ItemBaseScript>().itemType; //Save the held item type to variable
                             if (heldItemType == ItemTypes.ItemType.Stick && stickObjectReference == null)
                             {
+                                stickObjectReference = playerPickUpItem.heldItem;
                                 PlaceItemIntoCrafting(stickObjectReference, stickSlot, toolHeadObjectReference);
                             } 
                             else if ((heldItemType == ItemTypes.ItemType.IronAxeHead || heldItemType == ItemTypes.ItemType.IronPickHead) && toolHeadObjectReference == null)
                             {
+                                toolHeadObjectReference = playerPickUpItem.heldItem;
                                 PlaceItemIntoCrafting(toolHeadObjectReference, toolHeadSlot, stickObjectReference);
                             }
                         }
@@ -59,7 +65,7 @@ public class ForgeCraftingTable : MonoBehaviour
                     {
                         playerWalkingSpeedMemory = playerPickUpItem.playerObject.GetComponent<PlayerMovement>().playerWalkingSpeed;
                         playerPickUpItem.playerObject.GetComponent<PlayerMovement>().playerWalkingSpeed = 0;
-                        StartCoroutine(CraftingCoroutine(playerPickUpItem, dummyBouquet, playerObject));
+                        StartCoroutine(CraftingCoroutine());
                         break;
                     }
             }
@@ -68,7 +74,7 @@ public class ForgeCraftingTable : MonoBehaviour
 
     private void PlaceItemIntoCrafting(GameObject heldItemReference, GameObject itemSlot, GameObject otherItemReference)
     {
-        heldItemReference = playerPickUpItem.heldItem; //Save the input item into the variable
+        Debug.Log(heldItemReference);
         heldItemReference.layer = 0; //Make the item no longer pickupable
         heldItemReference.transform.position = itemSlot.transform.position; //Tp the item to its slot
         heldItemReference.transform.SetParent(itemSlot.transform); //Make the slot the parent of the item
@@ -88,27 +94,16 @@ public class ForgeCraftingTable : MonoBehaviour
         
         if (toolHeadObjectReference.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.IronAxeHead)
         {
-            Instantiate(toolHeadObjectReference);
+            instantiatedTool = Instantiate(toolAxePrefab, instantiateSlot.transform);
         }
-        
-
-        
-        ClearCraftingTableInventory();
-
-        foreach (GameObject item in craftingStationInventory)
+        else if (toolHeadObjectReference.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.IronPickHead)
         {
-            itemScript = item.GetComponent<ItemBaseScript>();
-            totalValue += itemScript.itemValue;
+            instantiatedTool = Instantiate(toolPickPrefab, instantiateSlot.transform);
         }
-        itemScript = heldItem.GetComponent<ItemBaseScript>();
-        itemScript.itemValue = totalValue;
-        playerPickUpItem.heldItem = heldItem;
-        heldItem.transform.SetParent(playerPickUpItem.gameObject.transform);
-        heldItem.transform.position = this.transform.position;
-        playerPickUpItem.areHandsFull = true;
-        Debug.Log("Picked up: " + heldItem.name);
-        craftingStationInventory.Clear();
+        instantiatedTool.transform.SetParent(instantiateSlot.transform);
+        Debug.Log("Spawned: " + instantiatedTool.name);
 
+        ClearCraftingTableInventory();
     }
 
     private void ClearCraftingTableInventory()
