@@ -5,15 +5,8 @@ public class ShippingBoxNew : MonoBehaviour
 {
     private GameObject playerTrigger; //Player item slot object
     [SerializeField] private CurrentLevelInfo currentLevelInfo; // SO that holds the information about the current level progress
-    public delegate void LevelScoreIncreaseHandlerNew(); //Declares a new event to be passed to the UI element that shows the current level score and amount of shipped bouquets
-    public static event LevelScoreIncreaseHandlerNew LevelScoreIncreaseEventNew; //Declares a new variable based on the event above
     [SerializeField] private List<ItemTypes.ItemType> acceptedProductTypes;
-
-    private void Start()
-    {
-        currentLevelInfo.currentLevelScore = 0;
-        currentLevelInfo.productsShippedDict.Clear();
-    }
+    [SerializeField] private LevelProgressionController levelProgressionController;
 
     void OnTriggerExit(Collider other)
     {
@@ -33,15 +26,13 @@ public class ShippingBoxNew : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerTrigger.GetComponent<PlayerPickUpItem>().heldItem != null)
+        if (Input.GetKeyDown(KeyCode.E) && playerTrigger != null && playerTrigger.GetComponent<PlayerPickUpItem>().heldItem != null)
         {
             GameObject heldItem = playerTrigger.GetComponent<PlayerPickUpItem>().heldItem;
             ItemTypes.ItemType heldItemType = heldItem.GetComponent<ItemBaseScript>().itemType;
             if (acceptedProductTypes.Contains(heldItemType))
             {
-                currentLevelInfo.IncreaseShippedProductCount(heldItemType);
-                currentLevelInfo.currentLevelScore += heldItem.GetComponent<ItemBaseScript>().itemValue;
-                LevelScoreIncreaseEventNew?.Invoke();
+                levelProgressionController.AddScoreAndMarkOrder(heldItemType, heldItem.GetComponent<ItemBaseScript>().itemValue);
 
                 Destroy(heldItem); 
                 playerTrigger.GetComponent<PlayerPickUpItem>().heldItem = null;
