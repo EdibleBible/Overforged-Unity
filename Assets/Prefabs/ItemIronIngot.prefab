@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 198255650062269802}
   - component: {fileID: 8234591600752146022}
   m_Layer: 6
-  m_Name: ItemIronAxeHead
+  m_Name: ItemIronIngot
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,9 +58,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemTypes: {fileID: 11400000, guid: 9d01df203a867d744a8576cc651859c9, type: 2}
-  itemType: 6
-  itemValue: 9
-  itemIcon: {fileID: 21300000, guid: ecc403640757697449d4767805b18321, type: 3}
+  itemType: 8
+  itemValue: 25
+  itemIcon: {fileID: 21300000, guid: 59357ef6bd85ca44e8735d8dd65405d7, type: 3}
 --- !u!65 &198255650062269802
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -136,8 +136,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.20000002, y: 0.20000002, z: 0.20000002}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3911503501800229680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -182,7 +182,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ecc403640757697449d4767805b18321, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59357ef6bd85ca44e8735d8dd65405d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -203,8 +203,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 221.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 221.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 221.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
         type: 3}
@@ -219,48 +234,53 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.6830127
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.6830127
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.18301274
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.18301274
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a54e3d9da56ff7949a5129b63f510c02,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: a54e3d9da56ff7949a5129b63f510c02,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fab396b19e85157429ba2c830704ecf2, type: 2}
+      objectReference: {fileID: 2100000, guid: 4d4122cea67e7484e87fde0c2798cd04, type: 2}
     - target: {fileID: -5754084199372789682, guid: a54e3d9da56ff7949a5129b63f510c02,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 6462439880451659912, guid: 28ffe58b384914d42bfe367cff6377ce,
+      objectReference: {fileID: 4496885475859389300, guid: 5c770cadaefe9d846b8675179d83b8e3,
         type: 3}
     - target: {fileID: 919132149155446097, guid: a54e3d9da56ff7949a5129b63f510c02,
         type: 3}

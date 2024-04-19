@@ -65,6 +65,7 @@ public class ForgeCraftingTable : MonoBehaviour
                     {
                         playerWalkingSpeedMemory = playerPickUpItem.playerObject.GetComponent<PlayerMovement>().playerWalkingSpeed;
                         playerPickUpItem.playerObject.GetComponent<PlayerMovement>().playerWalkingSpeed = 0;
+                        crafterState = CrafterState.Crafting;
                         StartCoroutine(CraftingCoroutine());
                         break;
                     }
@@ -104,6 +105,7 @@ public class ForgeCraftingTable : MonoBehaviour
         Debug.Log("Spawned: " + instantiatedTool.name);
 
         ClearCraftingTableInventory();
+        crafterState = CrafterState.ReadyForItems;
     }
 
     private void ClearCraftingTableInventory()
