@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemTypes: {fileID: 11400000, guid: 9d01df203a867d744a8576cc651859c9, type: 2}
-  itemType: 7
+  itemType: 8
   itemValue: 9
   itemIcon: {fileID: 21300000, guid: 659c9969bd5ae9a4c808913ccf9e7a98, type: 3}
 --- !u!65 &198255650062269802

@@ -172,6 +172,7 @@ MonoBehaviour:
   areHandsFull: 0
   storageBoxItem: {fileID: 1680323205915370819, guid: 0d6d8ac43996eac4a8522efe7b23a0b4,
     type: 3}
+  playerMovement: {fileID: 1026307933397911911}
   playerObject: {fileID: 702862554727601396}
   pickupRange: 1
   pickupLayers:

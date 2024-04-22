@@ -11,6 +11,7 @@ public class PlayerPickUpItem : MonoBehaviour
     [SerializeField] private GameObject heldItemSlot; //
     [SerializeField] public bool areHandsFull;
     [SerializeField] private GameObject storageBoxItem;
+    [SerializeField] public PlayerMovement playerMovement;
     public GameObject playerObject;
     public float pickupRange = 1f;
     public LayerMask pickupLayers;
@@ -108,6 +109,11 @@ public class PlayerPickUpItem : MonoBehaviour
         areHandsFull = false;
         Debug.Log("Put down: " + heldItem.name);
         heldItem = null;
+    }
+
+    public void PlayerCanMove(bool canMove)
+    {
+        playerMovement.PlayerCanMove(canMove);
     }
 }
 

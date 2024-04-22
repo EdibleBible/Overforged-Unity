@@ -11,6 +11,7 @@ public class ItemTypes : ScriptableObject //This SO allows items to have a varia
         BouquetRibbon,
         Stick,
         IronOre,
+        IronIngot,
         IronAxeHead,
         IronPickHead,
         IronAxe,

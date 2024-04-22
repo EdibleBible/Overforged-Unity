@@ -1,12 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static ItemTypes;
 
 public class ShippingBoxNew : MonoBehaviour
 {
     private GameObject playerTrigger; //Player item slot object
     [SerializeField] private CurrentLevelInfo currentLevelInfo; // SO that holds the information about the current level progress
-    [SerializeField] private List<ItemTypes.ItemType> acceptedProductTypes;
+    [SerializeField] private List<ItemType> acceptedProductTypes;
     [SerializeField] private LevelProgressionController levelProgressionController;
+    private GameObject itemToShip;
+    private ItemType itemType;
 
     void OnTriggerExit(Collider other)
     {
@@ -28,13 +31,13 @@ public class ShippingBoxNew : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && playerTrigger != null && playerTrigger.GetComponent<PlayerPickUpItem>().heldItem != null)
         {
-            GameObject heldItem = playerTrigger.GetComponent<PlayerPickUpItem>().heldItem;
-            ItemTypes.ItemType heldItemType = heldItem.GetComponent<ItemBaseScript>().itemType;
-            if (acceptedProductTypes.Contains(heldItemType))
+            GameObject itemToShip = playerTrigger.GetComponent<PlayerPickUpItem>().heldItem;
+            itemType = itemToShip.GetComponent<ItemBaseScript>().itemType;
+            if (acceptedProductTypes.Contains(itemType))
             {
-                levelProgressionController.AddScoreAndMarkOrder(heldItemType, heldItem.GetComponent<ItemBaseScript>().itemValue);
+                levelProgressionController.AddScoreAndMarkOrder(itemType, itemToShip.GetComponent<ItemBaseScript>().itemValue);
 
-                Destroy(heldItem); 
+                Destroy(itemToShip); 
                 playerTrigger.GetComponent<PlayerPickUpItem>().heldItem = null;
                 playerTrigger.GetComponent<PlayerPickUpItem>().areHandsFull = false;
             }
