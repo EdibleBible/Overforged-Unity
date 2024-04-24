@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: FlowerShop1
   m_EditorClassIdentifier: 
   levelScene: {fileID: 102900000, guid: b459981ef4ede18459e2f921c99b0a99, type: 3}
+<<<<<<< HEAD
   requiredItems: 
   requiredItemAmounts: 
   requiredScore: 0
   levelTime: 180
+=======
+>>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
   isLevelUnlocked: 1
   highScore: 0

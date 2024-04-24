@@ -14,12 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recentLevelScore: 0
   enoughProductsShipped: 0
+<<<<<<< HEAD
   recentLevelScene:
     m_Handle: 0
   recentLevelProgressData: {fileID: 11400000, guid: d9368e5eb6297c94990f29162d72a98c,
     type: 2}
+=======
+  recentLevelScene: {fileID: 0}
+>>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
   listOfLevels:
   - {fileID: 11400000, guid: ceec2a2c477006c48ae3e7abec455f3c, type: 2}
   - {fileID: 11400000, guid: bbe28aa1f9c095b4a898cfccef6a84f7, type: 2}
   - {fileID: 11400000, guid: 97e2c84e52ee5184eb867a7d1088329f, type: 2}
+<<<<<<< HEAD
   - {fileID: 11400000, guid: d9368e5eb6297c94990f29162d72a98c, type: 2}
+=======
+>>>>>>> 6be2f7d (Absolutely chaotic pause menu management)

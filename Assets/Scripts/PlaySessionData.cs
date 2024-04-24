@@ -10,8 +10,12 @@ public class PlaySessionData : ScriptableObject
 {
     public int recentLevelScore;
     public bool enoughProductsShipped;
+<<<<<<< HEAD
     public Scene recentLevelScene;
     public LevelProgressData recentLevelProgressData;
+=======
+    public SceneAsset recentLevelScene;
+>>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
     [NonSerialized] public bool recentLevelPassed;
     [NonSerialized] public bool isGamePaused;
     public List<LevelProgressData> listOfLevels = new List<LevelProgressData>();
@@ -27,6 +31,7 @@ public class PlaySessionData : ScriptableObject
         productsShippedDict[itemType]++;
     }
 
+<<<<<<< HEAD
     public void UnlockNextLevel()
     {
         listOfLevels[listOfLevels.IndexOf(recentLevelProgressData) +1].isLevelUnlocked = true;
@@ -41,5 +46,10 @@ public class PlaySessionData : ScriptableObject
         {
             return listOfLevels[listOfLevels.IndexOf(recentLevelProgressData) + 1].levelScene;
         }
+=======
+    public void UnlockNextLevel(LevelProgressData levelProgressData)
+    {
+        listOfLevels[listOfLevels.IndexOf(levelProgressData)+1].isLevelUnlocked = true;
+>>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
     }
 }

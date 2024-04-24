@@ -7,7 +7,11 @@ public class LevelProgressionController : MonoBehaviour
     [SerializeField] private CurrentLevelInfo currentLevelInfo;
     [SerializeField] private PlaySessionData playSessionData;
     [SerializeField] private LevelProgressData levelProgressData;
+<<<<<<< HEAD
     public float levelTime;
+=======
+    [NonSerialized] public float levelTime;
+>>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
     public delegate void LevelScoreIncreaseHandlerNew(string currentLevelScore);
     public static event LevelScoreIncreaseHandlerNew LevelScoreIncreaseEventNew;
     public delegate void LevelProgressionIncreaseHandler(PlaySessionData playSessionData);
@@ -17,6 +21,7 @@ public class LevelProgressionController : MonoBehaviour
 
     private void Start()
     {
+<<<<<<< HEAD
         levelTime = levelProgressData.levelTime;
         playSessionData.recentLevelScore = 0;
         playSessionData.productsShippedDict.Clear();
@@ -24,6 +29,14 @@ public class LevelProgressionController : MonoBehaviour
         playSessionData.recentLevelProgressData = levelProgressData;
         TimerUpdateEvent.Invoke(levelTime);
         StartCoroutine(StartTimer());
+=======
+        playSessionData.recentLevelScore = 0;
+        playSessionData.productsShippedDict.Clear();
+        playSessionData.enoughProductsShipped = false;
+        TimerUpdateEvent.Invoke(levelTime);
+        StartCoroutine(StartTimer());
+        levelTime = levelProgressData.levelTime;
+>>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
 }
     private IEnumerator StartTimer()
     {
@@ -49,13 +62,21 @@ public class LevelProgressionController : MonoBehaviour
         if (CheckShippedProductsToPass() && playSessionData.recentLevelScore >= levelProgressData.requiredScore)
         {
             playSessionData.recentLevelPassed = true;
+<<<<<<< HEAD
             playSessionData.UnlockNextLevel();
+=======
+            playSessionData.UnlockNextLevel(levelProgressData);
+>>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
         } else
         {
             playSessionData.recentLevelPassed = false;
         }
 
+<<<<<<< HEAD
         GamePause.SwitchPause(playSessionData.isGamePaused, "Scenes/UIFinishLevel", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+=======
+        GamePause.SwitchPause(playSessionData.isGamePaused, "Scenes/UIFinishLevel");
+>>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
     }
 
     private bool CheckShippedProductsToPass()
