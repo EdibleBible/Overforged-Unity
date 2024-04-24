@@ -15,11 +15,11 @@ public class ForgeShippingController : MonoBehaviour //Handles increasing the UI
         LevelProgressionController.LevelProgressionIncreaseEvent -= IncreaseScore;
     }
 
-    private void IncreaseScore(CurrentLevelInfo currentLevelInfo) //Function called by another script
+    private void IncreaseScore(PlaySessionData playSessionData) //Function called by another script
     {
-        if (currentLevelInfo.productsShippedDict.ContainsKey(itemTypeOfThisDisplay))
+        if (playSessionData.productsShippedDict.ContainsKey(itemTypeOfThisDisplay))
         {
-            gameObject.GetComponent<TextMeshProUGUI>().text = currentLevelInfo.productsShippedDict[itemTypeOfThisDisplay].ToString();
+            gameObject.GetComponent<TextMeshProUGUI>().text = playSessionData.productsShippedDict[itemTypeOfThisDisplay].ToString();
         }
     }
 }
