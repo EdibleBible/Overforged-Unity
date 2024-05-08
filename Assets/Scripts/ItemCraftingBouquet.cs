@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemCraftingBouquet : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class ItemCraftingBouquet : MonoBehaviour
     private bool ribbonIn;
     [SerializeField] private ParticleSystem smokeParticles;
     private float playerWalkingSpeedMemory;
+
+    [SerializeField] private Image timerImage;
 
 
     public void AddItemToInventory(GameObject heldItem)
@@ -37,6 +40,8 @@ public class ItemCraftingBouquet : MonoBehaviour
 
     IEnumerator DelayedExecution(PlayerPickUpItem playerPickUpItem, GameObject dummyBouquet, GameObject playerObject)
     {
+        StartCoroutine(CountDownAnimation(timeToCraft));
+
         yield return new WaitForSeconds(timeToCraft);
         playerObject.GetComponent<PlayerMovement>().playerWalkingSpeed = playerWalkingSpeedMemory;
 
@@ -74,6 +79,21 @@ public class ItemCraftingBouquet : MonoBehaviour
         Debug.Log("Picked up: " + heldItem.name);
         craftingStationInventory.Clear();
 
+    }
+
+
+    IEnumerator CountDownAnimation(float time)
+    {
+        float animationTime = 0;
+        print("DUPA");
+        timerImage.fillAmount = 0;
+        while (timerImage.fillAmount < 1)
+        {
+            animationTime += Time.deltaTime;
+            timerImage.fillAmount = animationTime / time;
+            yield return null;
+
+        }
     }
 }
 
