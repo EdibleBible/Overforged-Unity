@@ -27,7 +27,7 @@ public class ObjectShippingBoxUse : MonoBehaviour
     private void Update()
     {
         // If player presses E and holds an object and either holds a bouquet or holds a bouquet with ribbon
-        if (Input.GetKeyDown(KeyCode.E) && playerTrigger != null && (playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.Bouquet || playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.BouquetRibbon))
+        if ( Input.GetKeyDown(KeyCode.E) && playerTrigger != null && playerTrigger.transform.childCount > 0 && (playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.Bouquet || playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.BouquetRibbon))
         {
             if (playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.Bouquet) // If player holds a bouquet
             {
