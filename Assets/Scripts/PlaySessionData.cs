@@ -10,7 +10,8 @@ public class PlaySessionData : ScriptableObject
 {
     public int recentLevelScore;
     public bool enoughProductsShipped;
-    public SceneAsset recentLevelScene;
+    public Scene recentLevelScene;
+    public LevelProgressData recentLevelProgressData;
     [NonSerialized] public bool recentLevelPassed;
     [NonSerialized] public bool isGamePaused;
     public List<LevelProgressData> listOfLevels = new List<LevelProgressData>();
@@ -26,8 +27,19 @@ public class PlaySessionData : ScriptableObject
         productsShippedDict[itemType]++;
     }
 
-    public void UnlockNextLevel(LevelProgressData levelProgressData)
+    public void UnlockNextLevel()
     {
-        listOfLevels[listOfLevels.IndexOf(levelProgressData)+1].isLevelUnlocked = true;
+        listOfLevels[listOfLevels.IndexOf(recentLevelProgressData) +1].isLevelUnlocked = true;
+    }
+
+    public Scene ReturnNextLevelSceneAsset()
+    {
+        if (listOfLevels.Count == listOfLevels.IndexOf(recentLevelProgressData))
+        {
+            return recentLevelScene;
+        } else
+        {
+            return listOfLevels[listOfLevels.IndexOf(recentLevelProgressData) + 1].levelScene;
+        }
     }
 }

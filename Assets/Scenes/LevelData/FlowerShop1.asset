@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: FlowerShop1
   m_EditorClassIdentifier: 
   levelScene: {fileID: 102900000, guid: b459981ef4ede18459e2f921c99b0a99, type: 3}
+  requiredItems: 
+  requiredItemAmounts: 
+  requiredScore: 0
+  levelTime: 180
   isLevelUnlocked: 1
   highScore: 0
