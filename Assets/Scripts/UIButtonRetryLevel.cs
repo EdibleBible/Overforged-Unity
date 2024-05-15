@@ -18,4 +18,9 @@ public class UIButtonRetryLevel : MonoBehaviour //Attached to the buttons on the
     {
         GamePause.SwitchPause(playSessionData.isGamePaused, playSessionData.ReturnNextLevelSceneAsset());
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
