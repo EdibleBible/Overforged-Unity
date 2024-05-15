@@ -12,15 +12,20 @@ public class UIButtonRetryLevel : MonoBehaviour //Attached to the buttons on the
     public void Menu() //When menu button is pressed
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         GamePause.SwitchPause(playSessionData.isGamePaused, 0);
 =======
         Time.timeScale = 1f;
         SceneManager.LoadScene(0); //Loads main menu scene
 >>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
+=======
+        GamePause.SwitchPause(playSessionData.isGamePaused, 0);
+>>>>>>> feabb03 (Flower crafting done)
     }
 
     public void NextLevel() //When next level button is pressed
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         GamePause.SwitchPause(playSessionData.isGamePaused, playSessionData.ReturnNextLevelSceneAsset());
 =======
@@ -32,5 +37,8 @@ public class UIButtonRetryLevel : MonoBehaviour //Attached to the buttons on the
         currentLevelInfo.bouquetsShippedRibbon = 0;
         SceneManager.LoadScene(currentLevelInfo.currentLevel); //Loads current level again
 >>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
+=======
+        GamePause.SwitchPause(playSessionData.isGamePaused, playSessionData.ReturnNextLevelSceneAsset());
+>>>>>>> feabb03 (Flower crafting done)
     }
 }

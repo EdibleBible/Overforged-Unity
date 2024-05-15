@@ -8,10 +8,14 @@ public class LevelProgressionController : MonoBehaviour
     [SerializeField] private PlaySessionData playSessionData;
     [SerializeField] private LevelProgressData levelProgressData;
 <<<<<<< HEAD
+<<<<<<< HEAD
     public float levelTime;
 =======
     [NonSerialized] public float levelTime;
 >>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
+=======
+    public float levelTime;
+>>>>>>> feabb03 (Flower crafting done)
     public delegate void LevelScoreIncreaseHandlerNew(string currentLevelScore);
     public static event LevelScoreIncreaseHandlerNew LevelScoreIncreaseEventNew;
     public delegate void LevelProgressionIncreaseHandler(PlaySessionData playSessionData);
@@ -22,6 +26,7 @@ public class LevelProgressionController : MonoBehaviour
     private void Start()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         levelTime = levelProgressData.levelTime;
         playSessionData.recentLevelScore = 0;
         playSessionData.productsShippedDict.Clear();
@@ -30,13 +35,20 @@ public class LevelProgressionController : MonoBehaviour
         TimerUpdateEvent.Invoke(levelTime);
         StartCoroutine(StartTimer());
 =======
+=======
+        levelTime = levelProgressData.levelTime;
+>>>>>>> feabb03 (Flower crafting done)
         playSessionData.recentLevelScore = 0;
         playSessionData.productsShippedDict.Clear();
         playSessionData.enoughProductsShipped = false;
+        playSessionData.recentLevelProgressData = levelProgressData;
         TimerUpdateEvent.Invoke(levelTime);
         StartCoroutine(StartTimer());
+<<<<<<< HEAD
         levelTime = levelProgressData.levelTime;
 >>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
+=======
+>>>>>>> feabb03 (Flower crafting done)
 }
     private IEnumerator StartTimer()
     {
@@ -63,20 +75,28 @@ public class LevelProgressionController : MonoBehaviour
         {
             playSessionData.recentLevelPassed = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             playSessionData.UnlockNextLevel();
 =======
             playSessionData.UnlockNextLevel(levelProgressData);
 >>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
+=======
+            playSessionData.UnlockNextLevel();
+>>>>>>> feabb03 (Flower crafting done)
         } else
         {
             playSessionData.recentLevelPassed = false;
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         GamePause.SwitchPause(playSessionData.isGamePaused, "Scenes/UIFinishLevel", UnityEngine.SceneManagement.LoadSceneMode.Additive);
 =======
         GamePause.SwitchPause(playSessionData.isGamePaused, "Scenes/UIFinishLevel");
 >>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
+=======
+        GamePause.SwitchPause(playSessionData.isGamePaused, "Scenes/UIFinishLevel", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+>>>>>>> feabb03 (Flower crafting done)
     }
 
     private bool CheckShippedProductsToPass()

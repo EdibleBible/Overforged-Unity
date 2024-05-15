@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: Forge2
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> feabb03 (Flower crafting done)
   levelScene:
     m_Handle: 0
   requiredItems: 0700000008000000
   requiredItemAmounts: 0500000005000000
   requiredScore: 65
   levelTime: 180
+<<<<<<< HEAD
 =======
   levelScene: {fileID: 102900000, guid: 7c9a103bfca959d4d834a5f1ef2504ca, type: 3}
 >>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
+=======
+>>>>>>> feabb03 (Flower crafting done)
   isLevelUnlocked: 0
   highScore: 0

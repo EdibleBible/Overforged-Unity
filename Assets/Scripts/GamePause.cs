@@ -5,15 +5,20 @@ using UnityEngine.SceneManagement;
 public class GamePause : MonoBehaviour
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static void SwitchPause(bool isGamePaused, Scene pauseMenu)
 =======
     public static void SwitchPause(bool isGamePaused, Scene pauseMenu, LoadSceneMode loadSceneMode)
 >>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
+=======
+    public static void SwitchPause(bool isGamePaused, Scene pauseMenu)
+>>>>>>> feabb03 (Flower crafting done)
     {
         switch (isGamePaused)
         {
             case false:
                 Time.timeScale = 0;
+<<<<<<< HEAD
 <<<<<<< HEAD
                 SceneManager.LoadScene(pauseMenu.name);
 =======
@@ -34,6 +39,9 @@ public class GamePause : MonoBehaviour
                 Time.timeScale = 0;
                 SceneManager.LoadScene(pauseMenu.name, LoadSceneMode.Additive);
 >>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
+=======
+                SceneManager.LoadScene(pauseMenu.name);
+>>>>>>> feabb03 (Flower crafting done)
                 break;
             case true:
                 Time.timeScale = 1;
@@ -49,10 +57,14 @@ public class GamePause : MonoBehaviour
             case false:
                 Time.timeScale = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
                 SceneManager.LoadScene(pauseMenu);
 =======
                 SceneManager.LoadScene(pauseMenu, LoadSceneMode.Additive);
 >>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
+=======
+                SceneManager.LoadScene(pauseMenu);
+>>>>>>> feabb03 (Flower crafting done)
                 break;
             case true:
                 Time.timeScale = 1;
@@ -76,6 +88,9 @@ public class GamePause : MonoBehaviour
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> feabb03 (Flower crafting done)
     public static void SwitchPause(bool isGamePaused, Scene pauseMenu, LoadSceneMode loadSceneMode)
     {
         switch (isGamePaused)
@@ -135,6 +150,9 @@ public class GamePause : MonoBehaviour
                 break;
         }
     }
+<<<<<<< HEAD
 =======
 >>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
+=======
+>>>>>>> feabb03 (Flower crafting done)
 }

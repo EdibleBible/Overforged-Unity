@@ -131,11 +131,15 @@ public class PlayerPickUpItem : MonoBehaviour
     public ItemTypes.ItemType ReturnHeldItemType()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (heldItem != null)
         {
             return heldItem.GetComponent<ItemBaseScript>().itemType;
         }
         return ItemTypes.ItemType.None;
+=======
+        return heldItem.GetComponent<ItemBaseScript>().itemType;
+>>>>>>> feabb03 (Flower crafting done)
 =======
         return heldItem.GetComponent<ItemBaseScript>().itemType;
 >>>>>>> feabb03 (Flower crafting done)

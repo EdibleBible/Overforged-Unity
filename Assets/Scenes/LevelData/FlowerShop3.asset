@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: FlowerShop3
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> feabb03 (Flower crafting done)
   levelScene:
     m_Handle: 0
   requiredItems: 0100000003000000
   requiredItemAmounts: 0200000003000000
   requiredScore: 240
   levelTime: 180
+<<<<<<< HEAD
 =======
   levelScene: {fileID: 102900000, guid: 65862a4e2106ccf49a9eaf2cc8bba1fe, type: 3}
 >>>>>>> 6be2f7d (Absolutely chaotic pause menu management)
+=======
+>>>>>>> feabb03 (Flower crafting done)
   isLevelUnlocked: 0
   highScore: 0
