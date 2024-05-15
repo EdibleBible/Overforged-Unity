@@ -4294,6 +4294,7 @@ MonoBehaviour:
 <<<<<<< HEAD
   levelProgressData: {fileID: 11400000, guid: 97e2c84e52ee5184eb867a7d1088329f, type: 2}
 <<<<<<< HEAD
+<<<<<<< HEAD
   levelTime: 0
 =======
 >>>>>>> feabb03 (Flower crafting done)
@@ -4303,6 +4304,9 @@ MonoBehaviour:
 =======
   levelProgressData: {fileID: 11400000, guid: 97e2c84e52ee5184eb867a7d1088329f, type: 2}
 >>>>>>> feabb03 (Flower crafting done)
+=======
+  levelTime: 0
+>>>>>>> 6536a23 (Flower crafting bug fixed)
 --- !u!4 &1347885247
 Transform:
   m_ObjectHideFlags: 0

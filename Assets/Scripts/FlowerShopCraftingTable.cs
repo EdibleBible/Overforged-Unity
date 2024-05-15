@@ -44,6 +44,7 @@ public class FlowerShopCraftingTable : MonoBehaviour
                     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
                         {
                             crafterState = CrafterState.ReadyToAddFlower2;
@@ -57,25 +58,29 @@ public class FlowerShopCraftingTable : MonoBehaviour
 =======
 >>>>>>> feabb03 (Flower crafting done)
                         if (playerPickUpItem.heldItem != null)
+=======
+                        if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
+>>>>>>> 6536a23 (Flower crafting bug fixed)
                         {
-                            if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
-                            {
-                                crafterState = CrafterState.ReadyToAddFlower2;
-                            }
-                            else if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Bouquet) || playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Ribbon))
-                            {
-                                crafterState = CrafterState.ReadyToMakeRibbonBouquet;
-                            }
-                            PlaceItemIntoCrafting(playerPickUpItem.heldItem, 0);
+                            crafterState = CrafterState.ReadyToAddFlower2;
                         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> feabb03 (Flower crafting done)
 =======
 >>>>>>> feabb03 (Flower crafting done)
+=======
+                        else if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Bouquet) || playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Ribbon))
+                        {
+                            crafterState = CrafterState.ReadyToMakeRibbonBouquet;
+                        }
+                        PlaceItemIntoCrafting(playerPickUpItem.heldItem, 0);
+>>>>>>> 6536a23 (Flower crafting bug fixed)
                         break;
                     }
                 case CrafterState.ReadyToMakeRibbonBouquet:
                     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                         if (playerPickUpItem.ReturnHeldItemType() != placedMaterialsList[0].GetComponent<ItemBaseScript>().itemType &&
@@ -88,6 +93,10 @@ public class FlowerShopCraftingTable : MonoBehaviour
                         if (playerPickUpItem.heldItem != null && playerPickUpItem.ReturnHeldItemType() != placedMaterialsList[0].GetComponent<ItemBaseScript>().itemType &&
                             playerPickUpItem.ReturnHeldItemType() == ItemTypes.ItemType.Bouquet || playerPickUpItem.ReturnHeldItemType() == ItemTypes.ItemType.Ribbon)
 >>>>>>> feabb03 (Flower crafting done)
+=======
+                        if (playerPickUpItem.ReturnHeldItemType() != placedMaterialsList[0].GetComponent<ItemBaseScript>().itemType &&
+                            playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Bouquet) || playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Ribbon))
+>>>>>>> 6536a23 (Flower crafting bug fixed)
                         {
                             PlaceItemIntoCrafting(playerPickUpItem.heldItem, 1);
                             crafterState = CrafterState.ReadyToCraft;
@@ -96,6 +105,7 @@ public class FlowerShopCraftingTable : MonoBehaviour
                     }
                 case CrafterState.ReadyToAddFlower2:
                     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                         if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
@@ -115,12 +125,18 @@ public class FlowerShopCraftingTable : MonoBehaviour
 >>>>>>> feabb03 (Flower crafting done)
 =======
 >>>>>>> feabb03 (Flower crafting done)
+=======
+                        if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
+                        {
+                            PlaceItemIntoCrafting(playerPickUpItem.heldItem, 1);
+>>>>>>> 6536a23 (Flower crafting bug fixed)
                         }
                         crafterState = CrafterState.ReadyToAddFlower3;
                         break;
                     }
                 case CrafterState.ReadyToAddFlower3:
                     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                         if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
@@ -140,6 +156,11 @@ public class FlowerShopCraftingTable : MonoBehaviour
 >>>>>>> feabb03 (Flower crafting done)
 =======
 >>>>>>> feabb03 (Flower crafting done)
+=======
+                        if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
+                        {
+                            PlaceItemIntoCrafting(playerPickUpItem.heldItem, 2);
+>>>>>>> 6536a23 (Flower crafting bug fixed)
                         }
                         crafterState = CrafterState.ReadyToCraft;
                         break;
