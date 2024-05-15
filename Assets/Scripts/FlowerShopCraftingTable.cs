@@ -42,6 +42,7 @@ public class FlowerShopCraftingTable : MonoBehaviour
             {
                 case CrafterState.ReadyForAny:
                     {
+<<<<<<< HEAD
                         if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
                         {
                             crafterState = CrafterState.ReadyToAddFlower2;
@@ -51,12 +52,31 @@ public class FlowerShopCraftingTable : MonoBehaviour
                             crafterState = CrafterState.ReadyToMakeRibbonBouquet;
                         }
                         PlaceItemIntoCrafting(playerPickUpItem.heldItem, 0);
+=======
+                        if (playerPickUpItem.heldItem != null)
+                        {
+                            if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
+                            {
+                                crafterState = CrafterState.ReadyToAddFlower2;
+                            }
+                            else if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Bouquet) || playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Ribbon))
+                            {
+                                crafterState = CrafterState.ReadyToMakeRibbonBouquet;
+                            }
+                            PlaceItemIntoCrafting(playerPickUpItem.heldItem, 0);
+                        }
+>>>>>>> feabb03 (Flower crafting done)
                         break;
                     }
                 case CrafterState.ReadyToMakeRibbonBouquet:
                     {
+<<<<<<< HEAD
                         if (playerPickUpItem.ReturnHeldItemType() != placedMaterialsList[0].GetComponent<ItemBaseScript>().itemType &&
                             playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Bouquet) || playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Ribbon))
+=======
+                        if (playerPickUpItem.heldItem != null && playerPickUpItem.ReturnHeldItemType() != placedMaterialsList[0].GetComponent<ItemBaseScript>().itemType &&
+                            playerPickUpItem.ReturnHeldItemType() == ItemTypes.ItemType.Bouquet || playerPickUpItem.ReturnHeldItemType() == ItemTypes.ItemType.Ribbon)
+>>>>>>> feabb03 (Flower crafting done)
                         {
                             PlaceItemIntoCrafting(playerPickUpItem.heldItem, 1);
                             crafterState = CrafterState.ReadyToCraft;
@@ -65,18 +85,38 @@ public class FlowerShopCraftingTable : MonoBehaviour
                     }
                 case CrafterState.ReadyToAddFlower2:
                     {
+<<<<<<< HEAD
                         if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
                         {
                             PlaceItemIntoCrafting(playerPickUpItem.heldItem, 1);
+=======
+                        if (playerPickUpItem.heldItem != null)
+                        {
+                            ItemTypes.ItemType heldItemType = playerPickUpItem.heldItem.GetComponent<ItemBaseScript>().itemType;
+                            if (heldItemType == ItemTypes.ItemType.Flower)
+                            {
+                                PlaceItemIntoCrafting(playerPickUpItem.heldItem, 1);
+                            }
+>>>>>>> feabb03 (Flower crafting done)
                         }
                         crafterState = CrafterState.ReadyToAddFlower3;
                         break;
                     }
                 case CrafterState.ReadyToAddFlower3:
                     {
+<<<<<<< HEAD
                         if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
                         {
                             PlaceItemIntoCrafting(playerPickUpItem.heldItem, 2);
+=======
+                        if (playerPickUpItem.heldItem != null)
+                        {
+                            ItemTypes.ItemType heldItemType = playerPickUpItem.heldItem.GetComponent<ItemBaseScript>().itemType;
+                            if (heldItemType == ItemTypes.ItemType.Flower)
+                            {
+                                PlaceItemIntoCrafting(playerPickUpItem.heldItem, 1);
+                            }
+>>>>>>> feabb03 (Flower crafting done)
                         }
                         crafterState = CrafterState.ReadyToCraft;
                         break;
