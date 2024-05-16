@@ -6,9 +6,18 @@
             "id": "f715660a-0949-4b49-85be-07bd13e061ce",
             "actions": [
                 {
-                    "name": "Movement",
+                    "name": "MovementPlayer1",
                     "type": "Value",
                     "id": "a580efc4-c9be-4c43-ac87-cf75aac88961",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MovementPlayer2",
+                    "type": "Value",
+                    "id": "a8847b1d-fd68-48e0-960a-90da47f265e1",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -23,7 +32,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementPlayer1",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -34,7 +43,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementPlayer1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -45,7 +54,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementPlayer1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -56,7 +65,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementPlayer1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -67,62 +76,62 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementPlayer1",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "Arrows",
-                    "id": "3929f354-633b-4a26-93a0-9c83b91d620d",
+                    "id": "1598cab1-2899-473f-8e6b-9f3358998cea",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementPlayer2",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "up",
-                    "id": "f50d5cb9-18db-4598-a72c-265b71cb8ec8",
+                    "id": "99ac5d50-8a80-4ec6-8673-67f3fc79419b",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementPlayer2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "adcec522-1ad9-4084-8c0d-f8d99066a2df",
+                    "id": "0e74cc2a-f511-420e-b9e9-a4fea2639cb9",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementPlayer2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "b2c114f3-d0b8-42a1-9260-5456df6ac9b9",
+                    "id": "f55121cc-8eb2-4a0d-87ef-a3fc93ff25a4",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementPlayer2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "e0d6dd21-f1d9-4430-bab3-a907dc61a043",
+                    "id": "620cf4d6-1640-4338-9dfb-cc003fc8bb5f",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "MovementPlayer2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
