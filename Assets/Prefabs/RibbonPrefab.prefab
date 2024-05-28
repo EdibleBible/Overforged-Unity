@@ -14,12 +14,12 @@ GameObject:
   - component: {fileID: 7123692979512015000}
   - component: {fileID: 4830786061925125021}
   - component: {fileID: 8335163511695085705}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RibbonPrefab
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 66
   m_IsActive: 1
 --- !u!4 &8111606765195778754
 Transform:
@@ -72,7 +72,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &7123692979512015000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,12 +141,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2602890777771478050}
   - component: {fileID: 986221802316057628}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 66
   m_IsActive: 1
 --- !u!4 &2602890777771478050
 Transform:
@@ -297,6 +297,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ribbon
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f06b8fe9455bb8e4a87fb49c84ad156a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f06b8fe9455bb8e4a87fb49c84ad156a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
