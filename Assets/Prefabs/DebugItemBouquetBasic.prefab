@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5294482303961282604}
   - component: {fileID: 1126226188010793916}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 66
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5294482303961282604
 Transform:
@@ -95,13 +95,12 @@ GameObject:
   - component: {fileID: 6119655785797893635}
   - component: {fileID: 5283708312242610185}
   - component: {fileID: 726203700740754825}
-  - component: {fileID: 471950273377469737}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DebugItemBouquetBasic
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 66
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6119655785797893635
 Transform:
@@ -145,8 +144,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 1
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!114 &726203700740754825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,27 +162,6 @@ MonoBehaviour:
   itemType: 1
   itemValue: 0
   itemIcon: {fileID: 21300000, guid: 61732eafcfa91c04da88da693cbe35db, type: 3}
---- !u!65 &471950273377469737
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7117358337619938893}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9643386, y: 1.2004932, z: 0.49515235}
-  m_Center: {x: 0.0178307, y: 0.64720136, z: 0.02746436}
 --- !u!1001 &3993658762041485218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,36 +230,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 127d4b0b3dce9714d99fde20a2fe6c52, type: 2}
-    - target: {fileID: -3093522066325142665, guid: 06e1e2763d4bb4148919c720d00a0e16,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: -3093522066325142665, guid: 06e1e2763d4bb4148919c720d00a0e16,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 66
-      objectReference: {fileID: 0}
-    - target: {fileID: -1875859009689123504, guid: 06e1e2763d4bb4148919c720d00a0e16,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: -1875859009689123504, guid: 06e1e2763d4bb4148919c720d00a0e16,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 66
-      objectReference: {fileID: 0}
-    - target: {fileID: -1826608552702614006, guid: 06e1e2763d4bb4148919c720d00a0e16,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: -1826608552702614006, guid: 06e1e2763d4bb4148919c720d00a0e16,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 66
-      objectReference: {fileID: 0}
     - target: {fileID: -1676298821994548905, guid: 06e1e2763d4bb4148919c720d00a0e16,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -301,26 +249,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bouquet
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 06e1e2763d4bb4148919c720d00a0e16,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 06e1e2763d4bb4148919c720d00a0e16,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 66
-      objectReference: {fileID: 0}
-    - target: {fileID: 5907836877825047809, guid: 06e1e2763d4bb4148919c720d00a0e16,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5907836877825047809, guid: 06e1e2763d4bb4148919c720d00a0e16,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

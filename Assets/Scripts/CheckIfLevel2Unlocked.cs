@@ -16,4 +16,4 @@ public class CheckIfLevel2Unlocked : MonoBehaviour //Runs when the Main Menu sce
             buttonToHide.SetActive(false);
         }
     }
-} // do wyebania
+}

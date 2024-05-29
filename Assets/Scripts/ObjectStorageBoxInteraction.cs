@@ -27,7 +27,11 @@ public class ObjectStorageBoxInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerTrigger != null && !playerTrigger.GetComponent<PlayerPickUpItem>().areHandsFull)
+        if (playerTrigger == null) return;
+        var PlayerPickupItemRef = playerTrigger.GetComponent<PlayerPickUpItem>();
+        if (!PlayerPickupItemRef) return;
+        // If player presses E and holds an object and either holds a bouquet or holds a bouquet with ribbon
+        if (Input.GetKeyDown(PlayerPickupItemRef.PlayerRef.GetInput(e_PlayerInput.Use_Action)) && playerTrigger != null)
         {
             storageBoxItem = storageBoxItemList[Random.Range(0, storageBoxItemList.Count)]; //Randomly picks an item from the list of available items assigned in Inspector
 
@@ -46,10 +50,9 @@ public class ObjectStorageBoxInteraction : MonoBehaviour
             heldItem.transform.SetParent(playerTrigger.transform); //Sets the parent of the item object to be the player item slot object
             heldItem.transform.position = playerTrigger.transform.position; //Sets the position of the item object to be the player item slot object position
 
-            PlayerPickUpItem playerPickUpItem = playerTrigger.GetComponent<PlayerPickUpItem>(); //Referencs the script that handles the player holding an item
-            playerPickUpItem.heldItem = heldItem; //The player is informed what item they are holding now
-            Debug.Log(playerPickUpItem.heldItem);
-            playerPickUpItem.areHandsFull = true; //The player is informed their hands are holding an item
+            PlayerPickupItemRef.heldItem = heldItem; //The player is informed what item they are holding now
+            Debug.Log(PlayerPickupItemRef.heldItem);
+            PlayerPickupItemRef.areHandsFull = true; //The player is informed their hands are holding an item
         }
     }
 }

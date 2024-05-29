@@ -26,26 +26,29 @@ public class ObjectShippingBoxUse : MonoBehaviour
 
     private void Update()
     {
+        if (playerTrigger == null) return;
+        var PlayerPickupItemRef = playerTrigger.GetComponent<PlayerPickUpItem>();
+        if (!PlayerPickupItemRef) return;
         // If player presses E and holds an object and either holds a bouquet or holds a bouquet with ribbon
-        if (Input.GetKeyDown(KeyCode.E) && playerTrigger != null && (playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.Bouquet || playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.BouquetRibbon))
+        if (Input.GetKeyDown(PlayerPickupItemRef.PlayerRef.GetInput(e_PlayerInput.Use_Action)) && playerTrigger != null && (playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.Bouquet || playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.BouquetRibbon))
         {
-            if (playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.Bouquet) // If player holds a bouquet
+            if (playerTrigger.transform.childCount > 0)
             {
-                levelScore += playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemValue; // Level score variable is increased inside the SO
-                currentLevelInfo.bouquetsShipped++; // Amount of shipped bouquets is increased inside the SO
-                LevelScoreIncreaseEvent?.Invoke(levelScore, false); //Invokes the event which increases the score inside the UI
-            } else if (playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.BouquetRibbon) // If player holds a bouquet with ribbon
-            {
-                levelScore += ((int)(playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemValue * 1.5)); // Level score variable is increased inside the SO
-                currentLevelInfo.bouquetsShippedRibbon++; // Amount of shipped bouquets with ribbon is increased inside the SO
-                LevelScoreIncreaseEvent?.Invoke(levelScore, true); //Invokes the event which increases the score inside the UI
+                if (playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.Bouquet) // If player holds a bouquet
+                {
+                    levelScore += playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemValue; // Level score variable is increased inside the SO
+                    currentLevelInfo.bouquetsShipped++; // Amount of shipped bouquets is increased inside the SO
+                    LevelScoreIncreaseEvent?.Invoke(levelScore, false); //Invokes the event which increases the score inside the UI
+                } else if (playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemType == ItemTypes.ItemType.BouquetRibbon) // If player holds a bouquet with ribbon
+                {
+                    levelScore += ((int)(playerTrigger.transform.GetChild(0).gameObject.GetComponent<ItemBaseScript>().itemValue * 1.5)); // Level score variable is increased inside the SO
+                    currentLevelInfo.bouquetsShippedRibbon++; // Amount of shipped bouquets with ribbon is increased inside the SO
+                    LevelScoreIncreaseEvent?.Invoke(levelScore, true); //Invokes the event which increases the score inside the UI
+                }
+                Destroy(playerTrigger.transform.GetChild(0).gameObject); //Destroys the item held by the player
             }
-
-            Destroy(playerTrigger.transform.GetChild(0).gameObject); //Destroys the item held by the player
-
-            PlayerPickUpItem playerPickUpItem = playerTrigger.GetComponent<PlayerPickUpItem>();  //References the script that handles the player information about the held item
-            playerPickUpItem.heldItem = null;
-            playerPickUpItem.areHandsFull = false;
+            PlayerPickupItemRef.heldItem = null;
+            PlayerPickupItemRef.areHandsFull = false;
         }
     }
 }

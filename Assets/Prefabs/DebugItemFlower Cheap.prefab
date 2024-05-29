@@ -10,15 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 3911503501800229680}
   - component: {fileID: 6925674963676415378}
+  - component: {fileID: 325009734264780466}
   - component: {fileID: 8292472384173573775}
   - component: {fileID: 198255650062269802}
-  - component: {fileID: 8234591600752146022}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DebugItemFlower Cheap
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 66
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3911503501800229680
 Transform:
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1680323205915370819}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.096, y: -0.135, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -45,6 +45,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680323205915370819}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &325009734264780466
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680323205915370819}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!114 &8292472384173573775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,39 +103,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9643386, y: 1.2004932, z: 0.49515235}
-  m_Center: {x: 0.0178307, y: 0.64720136, z: 0.02746436}
---- !u!54 &8234591600752146022
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680323205915370819}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2889683012815214252
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,12 +119,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1832445499142331039}
   - component: {fileID: 9222479265850694882}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 66
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1832445499142331039
 Transform:
@@ -273,11 +273,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: c409728fdc05df24283ba459607e0354,
         type: 3}
-      propertyPath: m_MotionVectors
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: c409728fdc05df24283ba459607e0354,
-        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 04a211c8d99fda94093a10f0fce7d1f6, type: 2}
@@ -285,16 +280,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Daffodil
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: c409728fdc05df24283ba459607e0354,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: c409728fdc05df24283ba459607e0354,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
