@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6119655785797893635}
   - component: {fileID: 5283708312242610185}
   - component: {fileID: 726203700740754825}
-  - component: {fileID: 471950273377469737}
+  - component: {fileID: 3741836420706498883}
   m_Layer: 6
   m_Name: DebugItemBouquetBasic
   m_TagString: Item
@@ -143,7 +143,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
@@ -163,7 +163,7 @@ MonoBehaviour:
   itemType: 1
   itemValue: 0
   itemIcon: {fileID: 21300000, guid: 61732eafcfa91c04da88da693cbe35db, type: 3}
---- !u!65 &471950273377469737
+--- !u!65 &3741836420706498883
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,8 +182,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9643386, y: 1.2004932, z: 0.49515235}
-  m_Center: {x: 0.0178307, y: 0.64720136, z: 0.02746436}
+  m_Size: {x: 0.34587562, y: 0.77634454, z: 0.41068262}
+  m_Center: {x: 0.027225226, y: 0.4794773, z: -0.035486966}
 --- !u!1001 &3993658762041485218
 PrefabInstance:
   m_ObjectHideFlags: 0

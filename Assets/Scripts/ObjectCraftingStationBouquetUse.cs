@@ -40,11 +40,11 @@ public class ObjectCraftingStationBouquetUse : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && playerTrigger != null)
         {
             ItemTypes.ItemType heldItemType = ItemTypes.ItemType.Flower;
-            if (playerPickUpItem.areHandsFull == true)
+            if (playerPickUpItem != null && playerPickUpItem.areHandsFull == true)
             {
                 heldItemType = playerPickUpItem.heldItem.GetComponent<ItemBaseScript>().itemType;
             }
-            if (itemCraftingBouquet.craftingStationInventory.Count < 3 && heldItemType == ItemTypes.ItemType.Flower || heldItemType == ItemTypes.ItemType.Ribbon)
+            if (playerPickUpItem != null && playerPickUpItem.heldItem != null && itemCraftingBouquet.craftingStationInventory.Count < 3 && heldItemType == ItemTypes.ItemType.Flower || heldItemType == ItemTypes.ItemType.Ribbon)
             {
                 flowerParticles.Play();
                 dummyBouquet.SetActive(true);
