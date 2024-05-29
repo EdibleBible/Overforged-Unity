@@ -4,28 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class GamePause : MonoBehaviour
 {
-    public static void SwitchPause(bool isGamePaused, Scene pauseMenu, LoadSceneMode loadSceneMode)
+    public static void SwitchPause(bool isGamePaused, Scene pauseMenu)
     {
         switch (isGamePaused)
         {
             case false:
                 Time.timeScale = 0;
-                SceneManager.LoadScene(pauseMenu.name, loadSceneMode);
-                break;
-            case true:
-                Time.timeScale = 1;
-                SceneManager.UnloadSceneAsync(pauseMenu.name);
-                break;
-        }
-    }
-
-    public static void SwitchPause(bool isGamePaused, SceneAsset pauseMenu)
-    {
-        switch (isGamePaused)
-        {
-            case false:
-                Time.timeScale = 0;
-                SceneManager.LoadScene(pauseMenu.name, LoadSceneMode.Additive);
+                SceneManager.LoadScene(pauseMenu.name);
                 break;
             case true:
                 Time.timeScale = 1;
@@ -40,7 +25,7 @@ public class GamePause : MonoBehaviour
         {
             case false:
                 Time.timeScale = 0;
-                SceneManager.LoadScene(pauseMenu, LoadSceneMode.Additive);
+                SceneManager.LoadScene(pauseMenu);
                 break;
             case true:
                 Time.timeScale = 1;
@@ -60,6 +45,65 @@ public class GamePause : MonoBehaviour
             case true:
                 Time.timeScale = 1;
                 pauseMenu.SetActive(false);
+                break;
+        }
+    }
+    public static void SwitchPause(bool isGamePaused, Scene pauseMenu, LoadSceneMode loadSceneMode)
+    {
+        switch (isGamePaused)
+        {
+            case false:
+                Time.timeScale = 0;
+                SceneManager.LoadScene(pauseMenu.name, loadSceneMode);
+                break;
+            case true:
+                Time.timeScale = 1;
+                SceneManager.UnloadSceneAsync(pauseMenu.name);
+                break;
+        }
+    }
+
+    public static void SwitchPause(bool isGamePaused, string pauseMenu, LoadSceneMode loadSceneMode)
+    {
+        switch (isGamePaused)
+        {
+            case false:
+                Time.timeScale = 0;
+                SceneManager.LoadScene(pauseMenu, loadSceneMode);
+                break;
+            case true:
+                Time.timeScale = 1;
+                SceneManager.UnloadSceneAsync(pauseMenu);
+                break;
+        }
+    }
+
+    public static void SwitchPause(bool isGamePaused, int pauseMenu)
+    {
+        switch (isGamePaused)
+        {
+            case false:
+                Time.timeScale = 0;
+                SceneManager.LoadScene(pauseMenu);
+                break;
+            case true:
+                Time.timeScale = 1;
+                SceneManager.UnloadSceneAsync(pauseMenu);
+                break;
+        }
+    }
+
+    public static void SwitchPause(bool isGamePaused, int pauseMenu, LoadSceneMode loadSceneMode)
+    {
+        switch (isGamePaused)
+        {
+            case false:
+                Time.timeScale = 0;
+                SceneManager.LoadScene(pauseMenu, loadSceneMode);
+                break;
+            case true:
+                Time.timeScale = 1;
+                SceneManager.UnloadSceneAsync(pauseMenu);
                 break;
         }
     }
