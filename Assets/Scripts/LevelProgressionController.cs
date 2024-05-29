@@ -7,9 +7,9 @@ public class LevelProgressionController : MonoBehaviour
     [SerializeField] private CurrentLevelInfo currentLevelInfo;
     [SerializeField] private PlaySessionData playSessionData;
     [SerializeField] private LevelProgressData levelProgressData;
-    [NonSerialized] public float levelTime;
-    public delegate void LevelScoreIncreaseHandlerNew(string currentLevelScore);
-    public static event LevelScoreIncreaseHandlerNew LevelScoreIncreaseEventNew;
+    public float levelTime;
+    public delegate void LevelScoreIncreaseHandler(string currentLevelScore);
+    public static event LevelScoreIncreaseHandler LevelScoreIncreaseEvent;
     public delegate void LevelProgressionIncreaseHandler(PlaySessionData playSessionData);
     public static event LevelProgressionIncreaseHandler LevelProgressionIncreaseEvent;
     public delegate void TimerHandler(float timeLeft);
@@ -17,12 +17,13 @@ public class LevelProgressionController : MonoBehaviour
 
     private void Start()
     {
+        levelTime = levelProgressData.levelTime;
         playSessionData.recentLevelScore = 0;
         playSessionData.productsShippedDict.Clear();
         playSessionData.enoughProductsShipped = false;
+        playSessionData.recentLevelProgressData = levelProgressData;
         TimerUpdateEvent.Invoke(levelTime);
         StartCoroutine(StartTimer());
-        levelTime = levelProgressData.levelTime;
 }
     private IEnumerator StartTimer()
     {
@@ -48,13 +49,13 @@ public class LevelProgressionController : MonoBehaviour
         if (CheckShippedProductsToPass() && playSessionData.recentLevelScore >= levelProgressData.requiredScore)
         {
             playSessionData.recentLevelPassed = true;
-            playSessionData.UnlockNextLevel(levelProgressData);
+            playSessionData.UnlockNextLevel();
         } else
         {
             playSessionData.recentLevelPassed = false;
         }
 
-        GamePause.SwitchPause(playSessionData.isGamePaused, "Scenes/UIFinishLevel");
+        GamePause.SwitchPause(playSessionData.isGamePaused, "Scenes/UIFinishLevel", UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     private bool CheckShippedProductsToPass()
@@ -73,7 +74,7 @@ public class LevelProgressionController : MonoBehaviour
     {
         playSessionData.IncreaseShippedProductCount(itemType);
         playSessionData.recentLevelScore += itemValue;
-        LevelScoreIncreaseEventNew?.Invoke(playSessionData.recentLevelScore.ToString());
+        LevelScoreIncreaseEvent?.Invoke(playSessionData.recentLevelScore.ToString());
         LevelProgressionIncreaseEvent?.Invoke(playSessionData);
     }
 }

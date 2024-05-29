@@ -111,7 +111,6 @@ GameObject:
   - component: {fileID: 1274746560654899502}
   - component: {fileID: 532979093222108406}
   - component: {fileID: 4857220644750292027}
-  - component: {fileID: 8112451218441581862}
   m_Layer: 0
   m_Name: HeldItemSlot
   m_TagString: PlayerTrigger
@@ -175,22 +174,6 @@ MonoBehaviour:
   playerMovement: {fileID: 1026307933397911911}
   playerObject: {fileID: 702862554727601396}
   pickupRange: 1
-  pickupLayers:
-    serializedVersion: 2
-    m_Bits: 64
---- !u!114 &8112451218441581862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8482672948829284618}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55db8f88c06c6684f8fac26893d6ba57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupRange: 0.5
   pickupLayers:
     serializedVersion: 2
     m_Bits: 64

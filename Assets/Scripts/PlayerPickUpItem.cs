@@ -115,5 +115,27 @@ public class PlayerPickUpItem : MonoBehaviour
     {
         playerMovement.PlayerCanMove(canMove);
     }
+
+    public bool IsHeldItemType(ItemTypes.ItemType typeToCompare)
+    {
+        if (ReturnHeldItemType() == typeToCompare)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public ItemTypes.ItemType ReturnHeldItemType()
+    {
+        if (heldItem != null)
+        {
+            return heldItem.GetComponent<ItemBaseScript>().itemType;
+        }
+        return ItemTypes.ItemType.None;
+    }
+
 }
 

@@ -11,18 +11,16 @@ public class UIButtonRetryLevel : MonoBehaviour //Attached to the buttons on the
     }
     public void Menu() //When menu button is pressed
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(0); //Loads main menu scene
+        GamePause.SwitchPause(playSessionData.isGamePaused, 0);
     }
 
     public void NextLevel() //When next level button is pressed
     {
-        Time.timeScale = 1f;
-        currentLevelInfo.currentLevel = 2; //Changes current level in the game memory to level 2
-        // Resets current progress
-        currentLevelInfo.currentLevelScore = 0;
-        currentLevelInfo.bouquetsShipped = 0;
-        currentLevelInfo.bouquetsShippedRibbon = 0;
-        SceneManager.LoadScene(currentLevelInfo.currentLevel); //Loads current level again
+        GamePause.SwitchPause(playSessionData.isGamePaused, playSessionData.ReturnNextLevelSceneAsset());
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
