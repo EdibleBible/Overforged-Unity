@@ -4,14 +4,10 @@ using UnityEngine.SceneManagement;
 public class UIButtonRetryLevel : MonoBehaviour //Attached to the buttons on the Level Finish scene
 {
     [SerializeField] private CurrentLevelInfo currentLevelInfo; //SO containing the info about the current level progress
+    [SerializeField] private PlaySessionData playSessionData;
     public void Retry() //When retry button is pressed
     {
-        Time.timeScale = 1f;
-        // Resets current progress
-        currentLevelInfo.currentLevelScore = 0;
-        currentLevelInfo.bouquetsShipped = 0;
-        currentLevelInfo.bouquetsShippedRibbon = 0;
-        SceneManager.LoadScene(currentLevelInfo.currentLevel); //Loads current level again
+        GamePause.SwitchPause(playSessionData.isGamePaused, playSessionData.recentLevelScene);
     }
     public void Menu() //When menu button is pressed
     {
