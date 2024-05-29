@@ -68,8 +68,8 @@ public class FlowerShopCraftingTable : MonoBehaviour
                         if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
                         {
                             PlaceItemIntoCrafting(playerPickUpItem.heldItem, 1);
+                            crafterState = CrafterState.ReadyToAddFlower3;
                         }
-                        crafterState = CrafterState.ReadyToAddFlower3;
                         break;
                     }
                 case CrafterState.ReadyToAddFlower3:
@@ -77,8 +77,8 @@ public class FlowerShopCraftingTable : MonoBehaviour
                         if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
                         {
                             PlaceItemIntoCrafting(playerPickUpItem.heldItem, 2);
+                            crafterState = CrafterState.ReadyToCraft;
                         }
-                        crafterState = CrafterState.ReadyToCraft;
                         break;
                     }
                 case CrafterState.ReadyToCraft: //If crafting table has both items
