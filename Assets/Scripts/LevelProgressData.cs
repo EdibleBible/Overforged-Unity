@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class LevelProgressData : ScriptableObject
 {
     public Scene levelScene;
+    public int sceneInt;
     public List<ItemTypes.ItemType> requiredItems = new List<ItemTypes.ItemType>();
     public List<int> requiredItemAmounts = new List<int>();
     public int requiredScore;

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33778aeabd2e51b42977762c5594cea5, type: 3}
-  m_Name: FlowerShop1
+  m_Name: Forge3
   m_EditorClassIdentifier: 
   levelScene:
     m_Handle: 0
-  sceneInt: 1
-  requiredItems: 03000000
-  requiredItemAmounts: 05000000
-  requiredScore: 0
+  sceneInt: 6
+  requiredItems: 090000000a000000
+  requiredItemAmounts: 0500000005000000
+  requiredScore: 50
   levelTime: 180
-  isLevelUnlocked: 1
+  isLevelUnlocked: 0
   highScore: 0

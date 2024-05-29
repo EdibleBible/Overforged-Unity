@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelScene:
     m_Handle: 0
-  requiredItems: 
-  requiredItemAmounts: 
+  sceneInt: 4
+  requiredItems: 090000000a000000
+  requiredItemAmounts: 0300000003000000
   requiredScore: 0
   levelTime: 180
-  isLevelUnlocked: 1
+  isLevelUnlocked: 0
   highScore: 0

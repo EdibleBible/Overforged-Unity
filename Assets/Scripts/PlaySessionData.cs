@@ -14,6 +14,8 @@ public class PlaySessionData : ScriptableObject
     public LevelProgressData recentLevelProgressData;
     [NonSerialized] public bool recentLevelPassed;
     [NonSerialized] public bool isGamePaused;
+    public int levelProgressCount;
+    public int recentLevelInt;
     public List<LevelProgressData> listOfLevels = new List<LevelProgressData>();
     public Dictionary<ItemTypes.ItemType, int> productsShippedDict = new Dictionary<ItemTypes.ItemType, int>();
 

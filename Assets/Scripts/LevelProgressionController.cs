@@ -55,7 +55,7 @@ public class LevelProgressionController : MonoBehaviour
             playSessionData.recentLevelPassed = false;
         }
 
-        GamePause.SwitchPause(playSessionData.isGamePaused, "Scenes/UIFinishLevel", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        GamePause.SwitchPause(playSessionData.isGamePaused, 7, UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     private bool CheckShippedProductsToPass()

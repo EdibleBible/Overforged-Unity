@@ -7,7 +7,7 @@ public class UIButtonRetryLevel : MonoBehaviour //Attached to the buttons on the
     [SerializeField] private PlaySessionData playSessionData;
     public void Retry() //When retry button is pressed
     {
-        GamePause.SwitchPause(playSessionData.isGamePaused, playSessionData.recentLevelScene);
+        GamePause.SwitchPause(playSessionData.isGamePaused, playSessionData.recentLevelInt);
     }
     public void Menu() //When menu button is pressed
     {
@@ -16,7 +16,13 @@ public class UIButtonRetryLevel : MonoBehaviour //Attached to the buttons on the
 
     public void NextLevel() //When next level button is pressed
     {
-        GamePause.SwitchPause(playSessionData.isGamePaused, playSessionData.ReturnNextLevelSceneAsset());
+        if (playSessionData.recentLevelInt > 5)
+        {
+            GamePause.SwitchPause(playSessionData.isGamePaused, 0);
+        } else
+        {
+            GamePause.SwitchPause(playSessionData.isGamePaused, playSessionData.recentLevelInt + 1);
+        }
     }
 
     public void MainMenu()

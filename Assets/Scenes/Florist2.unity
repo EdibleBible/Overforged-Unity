@@ -3397,7 +3397,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 959061090}
     m_Modifications:
     - target: {fileID: 1332838751675659027, guid: 27419f32d6c88214088c3878bdfb08d5,
         type: 3}
@@ -3459,6 +3459,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27419f32d6c88214088c3878bdfb08d5, type: 3}
+--- !u!4 &928686703 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1332838751675659027, guid: 27419f32d6c88214088c3878bdfb08d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 928686702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &929400718
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,6 +3664,7 @@ Transform:
   - {fileID: 77659437}
   - {fileID: 254510339}
   - {fileID: 2064012491}
+  - {fileID: 928686703}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &974961140 stripped
@@ -4389,7 +4396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevelInfo: {fileID: 11400000, guid: 4a4b9a5d7b735b647b82294933dee7c9, type: 2}
-  playSessionData: {fileID: 0}
+  playSessionData: {fileID: 11400000, guid: 5e6ee3b36a857b44590576da268f5842, type: 2}
 --- !u!114 &1142289482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4912,7 +4919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevelInfo: {fileID: 11400000, guid: 4a4b9a5d7b735b647b82294933dee7c9, type: 2}
   playSessionData: {fileID: 11400000, guid: 5e6ee3b36a857b44590576da268f5842, type: 2}
-  levelProgressData: {fileID: 11400000, guid: bbe28aa1f9c095b4a898cfccef6a84f7, type: 2}
+  levelProgressData: {fileID: 11400000, guid: d4e3ca822f03ab845b6ba46da9873090, type: 2}
   levelTime: 0
 --- !u!4 &1347885247
 Transform:
@@ -7346,4 +7353,3 @@ SceneRoots:
   - {fileID: 929400722}
   - {fileID: 332007162}
   - {fileID: 1347885247}
-  - {fileID: 928686702}
