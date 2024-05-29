@@ -115,5 +115,41 @@ public class PlayerPickUpItem : MonoBehaviour
     {
         playerMovement.PlayerCanMove(canMove);
     }
+
+    public bool IsHeldItemType(ItemTypes.ItemType typeToCompare)
+    {
+        if (ReturnHeldItemType() == typeToCompare)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public ItemTypes.ItemType ReturnHeldItemType()
+    {
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6536a23 (Flower crafting bug fixed)
+        if (heldItem != null)
+        {
+            return heldItem.GetComponent<ItemBaseScript>().itemType;
+        }
+        return ItemTypes.ItemType.None;
+<<<<<<< HEAD
+=======
+        return heldItem.GetComponent<ItemBaseScript>().itemType;
+>>>>>>> feabb03 (Flower crafting done)
+=======
+        return heldItem.GetComponent<ItemBaseScript>().itemType;
+>>>>>>> feabb03 (Flower crafting done)
+=======
+>>>>>>> 6536a23 (Flower crafting bug fixed)
+    }
+
 }
 
