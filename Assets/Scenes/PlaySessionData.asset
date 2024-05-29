@@ -16,8 +16,10 @@ MonoBehaviour:
   enoughProductsShipped: 0
   recentLevelScene:
     m_Handle: 0
-  recentLevelProgressData: {fileID: 11400000, guid: ceec2a2c477006c48ae3e7abec455f3c,
+  recentLevelProgressData: {fileID: 11400000, guid: bbe28aa1f9c095b4a898cfccef6a84f7,
     type: 2}
+  levelProgressCount: 1
+  recentLevelInt: 2
   listOfLevels:
   - {fileID: 11400000, guid: ceec2a2c477006c48ae3e7abec455f3c, type: 2}
   - {fileID: 11400000, guid: bbe28aa1f9c095b4a898cfccef6a84f7, type: 2}

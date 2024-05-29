@@ -22,6 +22,7 @@ public class LevelProgressionController : MonoBehaviour
         playSessionData.productsShippedDict.Clear();
         playSessionData.enoughProductsShipped = false;
         playSessionData.recentLevelProgressData = levelProgressData;
+        playSessionData.recentLevelInt = levelProgressData.sceneInt;
         TimerUpdateEvent.Invoke(levelTime);
         StartCoroutine(StartTimer());
 }
