@@ -130,7 +130,11 @@ public class PlayerPickUpItem : MonoBehaviour
 
     public ItemTypes.ItemType ReturnHeldItemType()
     {
-        return heldItem.GetComponent<ItemBaseScript>().itemType;
+        if (heldItem != null)
+        {
+            return heldItem.GetComponent<ItemBaseScript>().itemType;
+        }
+        return ItemTypes.ItemType.None;
     }
 
 }

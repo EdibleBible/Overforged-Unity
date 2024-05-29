@@ -42,24 +42,21 @@ public class FlowerShopCraftingTable : MonoBehaviour
             {
                 case CrafterState.ReadyForAny:
                     {
-                        if (playerPickUpItem.heldItem != null)
+                        if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
                         {
-                            if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
-                            {
-                                crafterState = CrafterState.ReadyToAddFlower2;
-                            }
-                            else if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Bouquet) || playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Ribbon))
-                            {
-                                crafterState = CrafterState.ReadyToMakeRibbonBouquet;
-                            }
-                            PlaceItemIntoCrafting(playerPickUpItem.heldItem, 0);
+                            crafterState = CrafterState.ReadyToAddFlower2;
                         }
+                        else if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Bouquet) || playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Ribbon))
+                        {
+                            crafterState = CrafterState.ReadyToMakeRibbonBouquet;
+                        }
+                        PlaceItemIntoCrafting(playerPickUpItem.heldItem, 0);
                         break;
                     }
                 case CrafterState.ReadyToMakeRibbonBouquet:
                     {
-                        if (playerPickUpItem.heldItem != null && playerPickUpItem.ReturnHeldItemType() != placedMaterialsList[0].GetComponent<ItemBaseScript>().itemType &&
-                            playerPickUpItem.ReturnHeldItemType() == ItemTypes.ItemType.Bouquet || playerPickUpItem.ReturnHeldItemType() == ItemTypes.ItemType.Ribbon)
+                        if (playerPickUpItem.ReturnHeldItemType() != placedMaterialsList[0].GetComponent<ItemBaseScript>().itemType &&
+                            playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Bouquet) || playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Ribbon))
                         {
                             PlaceItemIntoCrafting(playerPickUpItem.heldItem, 1);
                             crafterState = CrafterState.ReadyToCraft;
@@ -68,26 +65,18 @@ public class FlowerShopCraftingTable : MonoBehaviour
                     }
                 case CrafterState.ReadyToAddFlower2:
                     {
-                        if (playerPickUpItem.heldItem != null)
+                        if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
                         {
-                            ItemTypes.ItemType heldItemType = playerPickUpItem.heldItem.GetComponent<ItemBaseScript>().itemType;
-                            if (heldItemType == ItemTypes.ItemType.Flower)
-                            {
-                                PlaceItemIntoCrafting(playerPickUpItem.heldItem, 1);
-                            }
+                            PlaceItemIntoCrafting(playerPickUpItem.heldItem, 1);
                         }
                         crafterState = CrafterState.ReadyToAddFlower3;
                         break;
                     }
                 case CrafterState.ReadyToAddFlower3:
                     {
-                        if (playerPickUpItem.heldItem != null)
+                        if (playerPickUpItem.IsHeldItemType(ItemTypes.ItemType.Flower))
                         {
-                            ItemTypes.ItemType heldItemType = playerPickUpItem.heldItem.GetComponent<ItemBaseScript>().itemType;
-                            if (heldItemType == ItemTypes.ItemType.Flower)
-                            {
-                                PlaceItemIntoCrafting(playerPickUpItem.heldItem, 1);
-                            }
+                            PlaceItemIntoCrafting(playerPickUpItem.heldItem, 2);
                         }
                         crafterState = CrafterState.ReadyToCraft;
                         break;

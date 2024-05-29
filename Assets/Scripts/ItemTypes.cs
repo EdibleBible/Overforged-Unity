@@ -15,6 +15,7 @@ public class ItemTypes : ScriptableObject //This SO allows items to have a varia
         IronAxeHead,
         IronPickHead,
         IronAxe,
-        IronPick
+        IronPick,
+        None
     }
 }
