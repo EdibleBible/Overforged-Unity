@@ -18,8 +18,8 @@ TagManager:
   - UI
   - Pickup
   - SpecialObject
-  - Slot
-  - 
+  - SlotEmpty
+  - SlotTaken
   - 
   - 
   - 
