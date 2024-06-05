@@ -33,6 +33,13 @@ public class ItemMove : MonoBehaviour
         playerScript.heldItem = null; //Removes the reference of this item from the player memory
     }
 
+    public void PlaceInObjectInventory(PlayerInteract playerScript, GameObject recipeObject)
+    {
+        playerScript.heldItem = null;
+        gameObject.SetActive(false);
+        transform.parent = recipeObject.transform;
+    }
+
     public void TeleportItem(Transform target) //Runs when the item has to snap to a slot
     {
         gameObject.transform.parent = target; //Changes the parent of the item to be a specified Transform

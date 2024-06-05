@@ -13,7 +13,7 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive
         {
             if (AreSlotsEmpty())
             {
-                craftedRecipeObject = gameObject.GetComponent<IRecipeInitializer>().InitializeRecipe(playerScript, gameObject.transform);
+                craftedRecipeObject = gameObject.GetComponent<IRecipeInitializer>().InitializeRecipe(playerScript, gameObject);
             }
             craftedRecipeObject.GetComponent<IItemRecipe>().RecipeInteract(playerScript);
         } else

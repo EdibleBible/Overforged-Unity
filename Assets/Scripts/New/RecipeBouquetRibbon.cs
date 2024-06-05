@@ -10,17 +10,20 @@ public class RecipeBouquetRibbon : MonoBehaviour, IItemRecipe
 
     public void RecipeInteract(PlayerInteract playerScript)
     {
+        GameObject heldItem = playerScript.heldItem;
         if (ribbonObject != null && bouquetObject != null)
         {
 
         }
         if (ribbonObject == null && playerScript.IsItemOfType(ItemTypes.ItemType.Ribbon))
         {
-
+            playerScript.ReturnItemMovementScript().PlaceInObjectInventory(playerScript, gameObject);
+            objectInventory.Add(playerScript.heldItem);
         }
         else if (bouquetObject == null && playerScript.IsItemOfType(ItemTypes.ItemType.Bouquet))
         {
-            playerScript.heldItem.SetActive(false);
+            playerScript.ReturnItemMovementScript().PlaceInObjectInventory(playerScript, gameObject);
+            objectInventory.Add(playerScript.heldItem);
         }
     }
 }

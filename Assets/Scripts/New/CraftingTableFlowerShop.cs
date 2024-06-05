@@ -6,14 +6,14 @@ public class CraftingTableFlowerShop : MonoBehaviour, IRecipeInitializer
 {
     [SerializeField] private GameObject recipeBouquet;
     [SerializeField] private GameObject recipeBouquetRibbon;
-    public GameObject InitializeRecipe(PlayerInteract playerScript, Transform slotTransform)
+    public GameObject InitializeRecipe(PlayerInteract playerScript, GameObject slot)
     {
         switch (playerScript.GetItemType())
         {
             case ItemTypes.ItemType.Flower:
-                return Instantiate(recipeBouquet, slotTransform.position, new Quaternion(0f,0f, 0f, 0f));
+                return Instantiate(recipeBouquet, slot.transform);
             case ItemTypes.ItemType.Bouquet:
-                return Instantiate(recipeBouquetRibbon, slotTransform.position, new Quaternion(0f, 0f, 0f, 0f));
+                return Instantiate(recipeBouquetRibbon, slot.transform);
         }
         return null;
     }
