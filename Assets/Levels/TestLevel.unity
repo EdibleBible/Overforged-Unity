@@ -1575,7 +1575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeBouquet: {fileID: 3404378817330337706, guid: 4a8b8d710700d1a49b7516688ce72b61,
     type: 3}
-  recipeBouquetRibbon: {fileID: 3404378817330337706, guid: 4a8b8d710700d1a49b7516688ce72b61,
+  recipeBouquetRibbon: {fileID: 3404378817330337706, guid: e3740ee16251e874d8f049a69076d01e,
     type: 3}
 --- !u!4 &7216428643472895334 stripped
 Transform:

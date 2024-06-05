@@ -78,4 +78,13 @@ public class PlayerInteract : MonoBehaviour
     {
         return heldItem.GetComponent<ItemBaseScript>().itemType;
     }
+
+    public bool IsItemOfType(ItemTypes.ItemType typeToCheck)
+    {
+        if (heldItem != null && GetItemType() == typeToCheck)
+        {
+            return true;
+        }
+        return false;
+    }
 }

@@ -46,11 +46,11 @@ GameObject:
   - component: {fileID: 9034679202322951431}
   - component: {fileID: 4338830354870292253}
   - component: {fileID: 641497451802263682}
-  - component: {fileID: 3152711976694250839}
+  - component: {fileID: -2085437128108438055}
   - component: {fileID: 8869943235698060905}
   - component: {fileID: 9079507964461124925}
-  m_Layer: 6
-  m_Name: ItemBouquet
+  m_Layer: 10
+  m_Name: RecipeBouquetRibbon
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
@@ -114,7 +114,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -122,7 +122,7 @@ CapsuleCollider:
   m_Height: 0.8
   m_Direction: 0
   m_Center: {x: 0, y: 0.02, z: 0.01}
---- !u!114 &3152711976694250839
+--- !u!114 &-2085437128108438055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,13 +131,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3404378817330337706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349ce40d4b47c844b8204d913ee81a21, type: 3}
+  m_Script: {fileID: 11500000, guid: 049d2da3e3626f14297a0f882bbd9261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemTypes: {fileID: 11400000, guid: 9d01df203a867d744a8576cc651859c9, type: 2}
-  itemType: 1
-  itemValue: 0
-  itemIcon: {fileID: 21300000, guid: 61732eafcfa91c04da88da693cbe35db, type: 3}
+  objectInventory: []
 --- !u!114 &8869943235698060905
 MonoBehaviour:
   m_ObjectHideFlags: 0

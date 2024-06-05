@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemInteract : MonoBehaviour, IPlayerItem //Can be interacted with by pressing E or Q
+public class ItemInteract : MonoBehaviour, IPlayerItem
 {
     [SerializeField] private ItemMove itemScript;
-
     public void PlayerItemInteraction(PlayerInteract playerScript) //Method which runs when the player presses Q
     {
         if (playerScript.heldItem == null) //If the player holds no item, the item is picked up
@@ -19,6 +18,4 @@ public class ItemInteract : MonoBehaviour, IPlayerItem //Can be interacted with 
             Debug.Log("Dropped: " + gameObject.name);
         }
     }
-
-    
 }
