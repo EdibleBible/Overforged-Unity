@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 641497451802263682}
   - component: {fileID: 3152711976694250839}
   - component: {fileID: 8869943235698060905}
-  - component: {fileID: 9079507964461124925}
   m_Layer: 6
   m_Name: ItemFlowerDaffodil
   m_TagString: Item
@@ -115,20 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97dc6ec1a7dc1c441b8732e30bdd3581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemScript: {fileID: 9079507964461124925}
+  info: {fileID: 3152711976694250839}
   pickupType: 0
---- !u!114 &9079507964461124925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3404378817330337706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07628ffe458a56b4c9246789c4378ff9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4872682978499428980
 GameObject:
   m_ObjectHideFlags: 0

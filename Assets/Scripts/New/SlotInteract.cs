@@ -6,34 +6,48 @@ public class SlotInteract : MonoBehaviour, IPlayerItem
 {
     public GameObject stuckItem;
 
-    public void PlayerItemInteraction(PlayerInteract playerScript)
+    public void PlayerItemInteraction(PlayerInteract player, ItemInteract item)
     {
-        if (playerScript.item != null && stuckItem == null)
+        if (player.HasItem() && !HasItem())
         {
-            PlaceItem(playerScript.ReturnItemMovementScript(), playerScript);
+            item.Place(player, this, gameObject.transform);
+            gameObject.layer = 9;
+            Debug.Log("Placed: " + stuckItem.name);
         }
-        else if (playerScript.item == null &&  stuckItem != null)
+        else if (!player.HasItem() &&  HasItem())
         {
-            PickUpItem(stuckItem.GetComponent<ItemMove>(), playerScript);
+            item.PickUp(player, this);
+            gameObject.layer = 8;
+            Debug.Log("Picked up: " + stuckItem.name);
         }
-    }
-
-    public void PlaceItem(ItemMove itemScript, PlayerInteract playerScript)
-    {
-        itemScript.PlaceItem(playerScript, this, this.gameObject.transform);
-        gameObject.layer = 9;
-        Debug.Log("Placed: " + stuckItem.name);
-    }
-
-    public void PickUpItem(ItemMove itemScript, PlayerInteract playerScript)
-    {
-        Debug.Log("Picked up: " + stuckItem.name);
-        gameObject.layer = 8;
-        itemScript.PickUpItem(playerScript, this);
     }
 
     public void DisableSlot(bool toBeDisabled)
     {
         if (toBeDisabled) { gameObject.layer = 0; } else { gameObject.layer = 8; }
+    }
+
+    public bool HasItem()
+    {
+        if (stuckItem)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void SetItem(GameObject item)
+    {
+        stuckItem = item;
+    }
+
+    public void SetItem(ItemInteract item)
+    {
+        stuckItem = item.gameObject;
+    }
+
+    public void Forget()
+    {
+        stuckItem = null;
     }
 }

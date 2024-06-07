@@ -6,11 +6,11 @@ using static ItemTypes;
 public class RecipeGeneric : MonoBehaviour, IItemRecipe
 {
     public GameObject recipeProduct;
-    public List<ItemTypes.ItemType> recipeItems = new();
+    public List<ItemType> recipeItems = new();
     public List<int> recipeItemCounts = new();
     public float timeToCraft = 3f;
-    private Dictionary<ItemTypes.ItemType, int> recipeDict = new();
-    private Dictionary<ItemTypes.ItemType, int> inventoryDict = new();
+    private Dictionary<ItemType, int> recipeDict = new();
+    private Dictionary<ItemType, int> inventoryDict = new();
     private int craftValue = 0;
 
     private void Awake()
@@ -22,32 +22,32 @@ public class RecipeGeneric : MonoBehaviour, IItemRecipe
         }
     }
 
-    public void RecipeInteract(PlayerInteract playerScript, CrafterSlotInteract crafterSlot)
+    public void RecipeInteract(PlayerInteract player, ItemInteract item, CrafterSlotInteract crafter)
     {
-        if (playerScript.HoldsItem())
+        if (player.HasItem())
         {
-            ItemTypes.ItemType itemType = playerScript.GetItemType();
+            ItemTypes.ItemType itemType = player.GetItemType();
             if (CanInput(itemType) && !EnoughInputOfType(itemType))
             {
-                AddValue(playerScript.GetItemValue());
-                playerScript.ReturnItemMovementScript().InputItem(playerScript, gameObject);
+                AddValue(player.GetItemValue());
+                item.Input(player, gameObject.transform);
                 inventoryDict[itemType]++;
                 return;
             }
         }
         if (InventoryFull())
         {
-            crafterSlot.Craft(recipeProduct, timeToCraft, craftValue);
+            crafter.Craft(recipeProduct, timeToCraft, craftValue);
             gameObject.SetActive(false);
         }
     }
 
-    bool CanInput(ItemTypes.ItemType itemType)
+    bool CanInput(ItemType itemType)
     {
         return recipeDict.ContainsKey(itemType);
     }
 
-    bool EnoughInputOfType(ItemTypes.ItemType itemType)
+    bool EnoughInputOfType(ItemType itemType)
     {
         if (inventoryDict[itemType] < recipeDict[itemType])
         {

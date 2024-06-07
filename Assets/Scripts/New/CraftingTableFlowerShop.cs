@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ItemTypes;
 
 public class CraftingTableFlowerShop : MonoBehaviour, IRecipeInitializer
 {
     [SerializeField] private GameObject recipeBouquet;
     [SerializeField] private GameObject recipeBouquetRibbon;
-    public GameObject InitializeRecipe(PlayerInteract playerScript, GameObject slot)
+    public ItemInteract InitializeRecipe(ItemInteract item, GameObject slotObject)
     {
-        switch (playerScript.GetItemType())
+        switch (item.info.itemType)
         {
-            case ItemTypes.ItemType.Flower:
-                return Instantiate(recipeBouquet, slot.transform);
-            case ItemTypes.ItemType.Bouquet:
-                return Instantiate(recipeBouquetRibbon, slot.transform);
+            case ItemType.Flower:
+                return Instantiate(recipeBouquet, slotObject.transform).GetComponent<ItemInteract>();
+            case ItemType.Bouquet:
+                return Instantiate(recipeBouquetRibbon, slotObject.transform).GetComponent<ItemInteract>();
+            case ItemType.Ribbon:
+                return Instantiate(recipeBouquetRibbon, slotObject.transform).GetComponent<ItemInteract>();
         }
         return null;
     }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IRecipeInitializer
 {
-    GameObject InitializeRecipe(PlayerInteract playerScript, GameObject slotObject);
+    ItemInteract InitializeRecipe(ItemInteract item, GameObject slotObject);
 }

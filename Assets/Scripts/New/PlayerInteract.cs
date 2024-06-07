@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private Transform detectionBox;
-    public Vector3 boxSize = new Vector3(0.1f, 1, 1);  // Size of the detection box
+    public Vector3 boxSize = new(0.1f, 1, 1);  // Size of the detection box
     public LayerMask interactWithItem;  // LayerMask to filter the detected objects when the player holds an item
     public LayerMask interactWithNoItem;  // LayerMask to filter the detected objects when the player holds an item
     public LayerMask useItemWithItem;  // LayerMask to filter the detected objects when the player holds an item
@@ -16,7 +17,7 @@ public class PlayerInteract : MonoBehaviour
     private Collider closestCollider;  //Collider of the closest object
     private GameObject closestGameObject;
     public Transform slot;  //Transform of the empty where a picked up item teleports
-    public GameObject item;  //Game object of the item that is held by the player
+    public GameObject itemObject;  //Game object of the item that is held by the player
     public PlayerMovement movement;
 
     void Update()
@@ -24,17 +25,17 @@ public class PlayerInteract : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) //Whenever E key is pressed
         {
             closestGameObject = DetectInteractives(KeyCode.E);
-            closestGameObject.GetComponent<IPlayerInteractive>()?.PlayerInteract(this); //Interact with the GameObject
+            closestGameObject.GetComponent<IPlayerInteractive>()?.PlayerInteract(this, GetItemScript()); //Interact with the GameObject
         }
         else if (Input.GetKeyDown(KeyCode.Q)) //Whenever Q key is pressed
         {
             closestGameObject = DetectInteractives(KeyCode.Q);
-            if (closestGameObject == gameObject && item)
+            if (closestGameObject == gameObject && itemObject)
             {
-                item.GetComponent<IPlayerItem>().PlayerItemInteraction(this); //Interact with the GameObject
+                itemObject.GetComponent<IPlayerItem>().PlayerItemInteraction(this, GetItemScript()); //Interact with the GameObject
             } else
             {
-                closestGameObject.GetComponent<IPlayerItem>()?.PlayerItemInteraction(this); //Interact with the GameObject
+                closestGameObject.GetComponent<IPlayerItem>()?.PlayerItemInteraction(this, GetItemScript()); //Interact with the GameObject
             }
         }
     }
@@ -44,7 +45,7 @@ public class PlayerInteract : MonoBehaviour
         LayerMask detectionLayer = new();
         switch (keyCode) {
             case KeyCode.E:
-                if (item)
+                if (itemObject)
                 {
                     detectionLayer = interactWithItem;
                 } else
@@ -53,7 +54,7 @@ public class PlayerInteract : MonoBehaviour
                 }
                 break;
             case KeyCode.Q:
-                if (item)
+                if (itemObject)
                 {
                     detectionLayer = useItemWithItem;
                 }
@@ -80,37 +81,58 @@ public class PlayerInteract : MonoBehaviour
         return closestCollider.gameObject;
     }
 
-    public ItemMove ReturnItemMovementScript()
+    public ItemBaseScript GetItemInfo()
     {
-        return item.GetComponent<ItemMove>();
+        return itemObject.GetComponent<ItemBaseScript>();
     }
 
-    public ItemTypes.ItemType GetItemType()
+    public ItemInteract GetItemScript()
     {
-        return item.GetComponent<ItemBaseScript>().itemType;
+        if (itemObject == null) return null;
+        return itemObject.GetComponent<ItemInteract>();
     }
 
-    public bool IsItemOfType(ItemTypes.ItemType typeToCheck)
+    public bool HasItem()
     {
-        if (item != null && GetItemType() == typeToCheck)
+        if (itemObject)
         {
             return true;
         }
         return false;
     }
 
-    public bool HoldsItem()
+    public void Forget()
     {
-        if (item == null)
+        itemObject = null;
+    }
+
+    public void SetItem(ItemInteract item)
+    {
+        itemObject = item.gameObject;
+    }
+
+    public void SetItem(GameObject item)
+    {
+        itemObject = item;
+    }
+
+    public ItemTypes.ItemType GetItemType()
+    {
+        return GetItemScript().info.itemType;
+    }
+
+    public bool IsItemOfType(ItemTypes.ItemType typeToCheck)
+    {
+        if (itemObject != null && GetItemType() == typeToCheck)
         {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public int GetItemValue()
     {
-        return item.GetComponent<ItemBaseScript>().itemValue;
+        return itemObject.GetComponent<ItemBaseScript>().itemValue;
     }
 
     public PlayerMovement ReturnPlayerMovementScript()

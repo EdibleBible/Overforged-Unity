@@ -46,9 +46,8 @@ GameObject:
   - component: {fileID: 9034679202322951431}
   - component: {fileID: 4338830354870292253}
   - component: {fileID: 641497451802263682}
-  - component: {fileID: -2085437128108438055}
+  - component: {fileID: -3941966204089203211}
   - component: {fileID: 8869943235698060905}
-  - component: {fileID: 9079507964461124925}
   m_Layer: 10
   m_Name: RecipeBouquetRibbon
   m_TagString: Item
@@ -122,7 +121,7 @@ CapsuleCollider:
   m_Height: 0.8
   m_Direction: 0
   m_Center: {x: 0, y: 0.02, z: 0.01}
---- !u!114 &-2085437128108438055
+--- !u!114 &-3941966204089203211
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,10 +130,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3404378817330337706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 049d2da3e3626f14297a0f882bbd9261, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f5c0ab336faa5840993184c4ae6e63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipeProduct: {fileID: 3404378817330337706, guid: 4a8b8d710700d1a49b7516688ce72b61,
+  recipeProduct: {fileID: 3404378817330337706, guid: d2d6be7f148ff704c9d6b65c0a78711f,
     type: 3}
   recipeItems: 0100000002000000
   recipeItemCounts: 0100000001000000
@@ -151,20 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97dc6ec1a7dc1c441b8732e30bdd3581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemScript: {fileID: 9079507964461124925}
+  info: {fileID: 0}
   pickupType: 1
---- !u!114 &9079507964461124925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3404378817330337706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07628ffe458a56b4c9246789c4378ff9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3860348366218205063
 GameObject:
   m_ObjectHideFlags: 0
