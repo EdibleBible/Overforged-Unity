@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,44 +15,54 @@ public class PlayerInteract : MonoBehaviour
     private float closestObjectDistance;  //Distance between the detection box center & the closest point of the closest detected object
     private Collider closestCollider;  //Collider of the closest object
     private GameObject closestGameObject;
-    public Transform playerItemSlot;  //Transform of the empty where a picked up item teleports
-    public GameObject heldItem;  //Game object of the item that is held by the player
+    public Transform slot;  //Transform of the empty where a picked up item teleports
+    public GameObject item;  //Game object of the item that is held by the player
+    public PlayerMovement movement;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) //Whenever E key is pressed
         {
-            if (heldItem == null)  //If the player holds no item
-            {
-                closestGameObject = DetectInteractives(interactWithNoItem);  //Start scanning for items to pick up or objects to interact with
-            } else //If the player holds any item
-            {
-                closestGameObject = DetectInteractives(interactWithItem);  //Start scanning for slots to place items in or objects to interact with
-            }
+            closestGameObject = DetectInteractives(KeyCode.E);
             closestGameObject.GetComponent<IPlayerInteractive>()?.PlayerInteract(this); //Interact with the GameObject
         }
         else if (Input.GetKeyDown(KeyCode.Q)) //Whenever Q key is pressed
         {
-            if (heldItem == null)  //If the player holds no item
+            closestGameObject = DetectInteractives(KeyCode.Q);
+            if (closestGameObject == gameObject && item)
             {
-                closestGameObject = DetectInteractives(useItemWithNoItem);  //Start scanning for items to pick up or objects to interact with
-                closestGameObject.GetComponent<IPlayerItem>()?.PlayerItemInteraction(this); //Interact with the GameObject
+                item.GetComponent<IPlayerItem>().PlayerItemInteraction(this); //Interact with the GameObject
             } else
             {
-                closestGameObject = DetectInteractives(useItemWithItem);  //Start scanning for slots to place items in
-                if (closestGameObject == gameObject) //If there's not slot to interact with
-                {
-                    heldItem.GetComponent<IPlayerItem>().PlayerItemInteraction(this); //Interact with the GameObject
-                } else
-                {
-                    closestGameObject.GetComponent<IPlayerItem>()?.PlayerItemInteraction(this); //Interact with the GameObject
-                }
+                closestGameObject.GetComponent<IPlayerItem>()?.PlayerItemInteraction(this); //Interact with the GameObject
             }
         }
     }
 
-    private GameObject DetectInteractives(LayerMask detectionLayer) //Detects the closest GameObject which can be interacted with
+    private GameObject DetectInteractives(KeyCode keyCode) //Detects the closest GameObject which can be interacted with
     {
+        LayerMask detectionLayer = new();
+        switch (keyCode) {
+            case KeyCode.E:
+                if (item)
+                {
+                    detectionLayer = interactWithItem;
+                } else
+                {
+                    detectionLayer = interactWithNoItem;
+                }
+                break;
+            case KeyCode.Q:
+                if (item)
+                {
+                    detectionLayer = useItemWithItem;
+                }
+                else
+                {
+                    detectionLayer = useItemWithNoItem;
+                }
+                break;
+        }
         Vector3 triggerCenter = detectionBox.position; //Gets the center position of this object
         Collider[] hitColliders = Physics.OverlapBox(triggerCenter, boxSize / 2, gameObject.transform.rotation, detectionLayer); //Makes a list of all colliders which hit this object
         if (hitColliders.Length == 0) { closestCollider = null; return gameObject; };
@@ -71,17 +82,17 @@ public class PlayerInteract : MonoBehaviour
 
     public ItemMove ReturnItemMovementScript()
     {
-        return heldItem.GetComponent<ItemMove>();
+        return item.GetComponent<ItemMove>();
     }
 
     public ItemTypes.ItemType GetItemType()
     {
-        return heldItem.GetComponent<ItemBaseScript>().itemType;
+        return item.GetComponent<ItemBaseScript>().itemType;
     }
 
     public bool IsItemOfType(ItemTypes.ItemType typeToCheck)
     {
-        if (heldItem != null && GetItemType() == typeToCheck)
+        if (item != null && GetItemType() == typeToCheck)
         {
             return true;
         }
@@ -90,7 +101,7 @@ public class PlayerInteract : MonoBehaviour
 
     public bool HoldsItem()
     {
-        if (heldItem == null)
+        if (item == null)
         {
             return false;
         }
@@ -99,7 +110,7 @@ public class PlayerInteract : MonoBehaviour
 
     public int GetItemValue()
     {
-        return heldItem.GetComponent<ItemBaseScript>().itemValue;
+        return item.GetComponent<ItemBaseScript>().itemValue;
     }
 
     public PlayerMovement ReturnPlayerMovementScript()

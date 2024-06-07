@@ -8,11 +8,11 @@ public class SlotInteract : MonoBehaviour, IPlayerItem
 
     public void PlayerItemInteraction(PlayerInteract playerScript)
     {
-        if (playerScript.heldItem != null && stuckItem == null)
+        if (playerScript.item != null && stuckItem == null)
         {
             PlaceItem(playerScript.ReturnItemMovementScript(), playerScript);
         }
-        else if (playerScript.heldItem == null &&  stuckItem != null)
+        else if (playerScript.item == null &&  stuckItem != null)
         {
             PickUpItem(stuckItem.GetComponent<ItemMove>(), playerScript);
         }

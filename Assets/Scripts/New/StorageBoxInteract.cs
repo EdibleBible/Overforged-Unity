@@ -9,7 +9,7 @@ public class StorageBoxInteract : MonoBehaviour, IPlayerInteractive
 
     public void PlayerInteract(PlayerInteract playerScript)
     {
-        if (slot.stuckItem == null && playerScript.heldItem == null)
+        if (slot.stuckItem == null && playerScript.item == null)
         {
             GameObject spawnedItem = Instantiate(itemList[Random.Range(0, itemList.Count)], slot.transform);
             spawnedItem.GetComponent<ItemMove>().PickUpItem(playerScript);

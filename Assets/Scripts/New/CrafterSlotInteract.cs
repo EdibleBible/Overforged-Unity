@@ -19,7 +19,7 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
         }
 
         latestPlayer = playerScript;
-        if (stuckObject == null && latestPlayer.heldItem != null)
+        if (stuckObject == null && latestPlayer.item != null)
         {
             stuckObject = gameObject.GetComponent<IRecipeInitializer>().InitializeRecipe(latestPlayer, gameObject);
             stuckObject.GetComponent<IItemRecipe>().RecipeInteract(latestPlayer, this);
@@ -31,9 +31,9 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
 
     public void PlayerItemInteraction(PlayerInteract playerScript)
     {
-        if (playerScript.heldItem)
+        if (playerScript.item)
         {
-            if (stuckObject == null && playerScript.heldItem.GetComponent<ItemInteract>().isRecipe())
+            if (stuckObject == null && playerScript.item.GetComponent<ItemInteract>().isRecipe())
             {
                 stuckObject.GetComponent<ItemMove>().PlaceItem(playerScript, this, transform);
             }
@@ -52,7 +52,7 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
     public void Craft(GameObject prefab, float timeInterval, int value)
     {
         StartCoroutine(WaitToCraft(timeInterval));
-        latestPlayer.ReturnPlayerMovementScript().PlayerCanMove(false);
+        latestPlayer.movement.PlayerCanMove(false);
         gameObject.layer = 0;
         Destroy(stuckObject);
         stuckObject = Instantiate(prefab, gameObject.transform);
@@ -69,7 +69,7 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
 
     void FinishCrafting()
     {
-        latestPlayer.ReturnPlayerMovementScript().PlayerCanMove(true);
+        latestPlayer.movement.PlayerCanMove(true);
         gameObject.layer = 9;
         stuckObject.SetActive(true);
     }
