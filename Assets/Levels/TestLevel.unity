@@ -2008,8 +2008,9 @@ MonoBehaviour:
   useItemWithNoItem:
     serializedVersion: 2
     m_Bits: 704
-  playerItemSlot: {fileID: 156611271}
-  heldItem: {fileID: 0}
+  slot: {fileID: 156611271}
+  item: {fileID: 0}
+  movement: {fileID: 1991373496919976283}
 --- !u!4 &8984298235939641041
 Transform:
   m_ObjectHideFlags: 0
