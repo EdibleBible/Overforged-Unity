@@ -87,4 +87,23 @@ public class PlayerInteract : MonoBehaviour
         }
         return false;
     }
+
+    public bool HoldsItem()
+    {
+        if (heldItem == null)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public int GetItemValue()
+    {
+        return heldItem.GetComponent<ItemBaseScript>().itemValue;
+    }
+
+    public PlayerMovement ReturnPlayerMovementScript()
+    {
+        return gameObject.GetComponent<PlayerMovement>();
+    }
 }

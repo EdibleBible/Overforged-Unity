@@ -5,6 +5,8 @@ using UnityEngine;
 public class ItemInteract : MonoBehaviour, IPlayerItem
 {
     [SerializeField] private ItemMove itemScript;
+    public enum PickupType {item, recipe};
+    public PickupType pickupType;
     public void PlayerItemInteraction(PlayerInteract playerScript) //Method which runs when the player presses Q
     {
         if (playerScript.heldItem == null) //If the player holds no item, the item is picked up
@@ -17,5 +19,14 @@ public class ItemInteract : MonoBehaviour, IPlayerItem
             itemScript.DropItem(playerScript); //Drops the item from the player's slot
             Debug.Log("Dropped: " + gameObject.name);
         }
+    }
+
+    public bool isRecipe()
+    {
+        if (pickupType == PickupType.item)
+        {
+            return false;
+        }
+        return true;
     }
 }

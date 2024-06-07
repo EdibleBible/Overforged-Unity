@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static ItemTypes;
 
-public class RecipeBouquetRibbon : MonoBehaviour, IItemRecipe
+public class RecipeGeneric : MonoBehaviour, IItemRecipe
 {
     public GameObject recipeProduct;
     public List<ItemTypes.ItemType> recipeItems = new();
@@ -12,7 +12,6 @@ public class RecipeBouquetRibbon : MonoBehaviour, IItemRecipe
     private Dictionary<ItemTypes.ItemType, int> recipeDict = new();
     private Dictionary<ItemTypes.ItemType, int> inventoryDict = new();
     private int craftValue = 0;
-    private int valueMultiplier = 1;
 
     private void Awake()
     {
@@ -30,7 +29,7 @@ public class RecipeBouquetRibbon : MonoBehaviour, IItemRecipe
             ItemTypes.ItemType itemType = playerScript.GetItemType();
             if (CanInput(itemType) && !EnoughInputOfType(itemType))
             {
-                AddValue(itemType, playerScript.GetItemValue());
+                AddValue(playerScript.GetItemValue());
                 playerScript.ReturnItemMovementScript().InputItem(playerScript, gameObject);
                 inventoryDict[itemType]++;
                 return;
@@ -38,7 +37,7 @@ public class RecipeBouquetRibbon : MonoBehaviour, IItemRecipe
         }
         if (InventoryFull())
         {
-            crafterSlot.Craft(recipeProduct, timeToCraft, craftValue * valueMultiplier);
+            crafterSlot.Craft(recipeProduct, timeToCraft, craftValue);
             gameObject.SetActive(false);
         }
     }
@@ -69,14 +68,8 @@ public class RecipeBouquetRibbon : MonoBehaviour, IItemRecipe
         return true;
     }
 
-    void AddValue(ItemType itemType, int value)
+    void AddValue(int value)
     {
-        if (itemType == ItemType.Ribbon)
-        {
-            valueMultiplier++;
-        } else
-        {
-            craftValue += value;
-        }
+        craftValue += value;
     }
 }

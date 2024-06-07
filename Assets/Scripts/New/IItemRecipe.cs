@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IItemRecipe
 {
-    void RecipeInteract(PlayerInteract playerScript);
+    void RecipeInteract(PlayerInteract playerScript, CrafterSlotInteract crafterSlot);
 }

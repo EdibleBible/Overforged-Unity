@@ -26,6 +26,14 @@ public class ItemMove : MonoBehaviour
         playerScript.heldItem = null; //Removes the reference to this item from the player memory
     }
 
+    public void PlaceItem(PlayerInteract playerScript, CrafterSlotInteract slotScript, Transform slotTransform) //Runs when the item is being placed into any slot from player's hands
+    {
+        DisableItem(true); //Makes the item undetectable, not affected by physics and not colliding
+        TeleportItem(slotTransform); //Teleports the item to the slot's empty & changes the parent to be the player item slot empty
+        slotScript.stuckObject = gameObject; //Saves a reference to this item to the slot memory
+        playerScript.heldItem = null; //Removes the reference to this item from the player memory
+    }
+
     public void DropItem(PlayerInteract playerScript) //Runs when the player drops the item freely from their hands
     {
         DisableItem(false); //Makes the item detectable, affected by physics and colliding
@@ -33,7 +41,7 @@ public class ItemMove : MonoBehaviour
         playerScript.heldItem = null; //Removes the reference of this item from the player memory
     }
 
-    public void PlaceInObjectInventory(PlayerInteract playerScript, GameObject recipeObject)
+    public void InputItem(PlayerInteract playerScript, GameObject recipeObject)
     {
         playerScript.heldItem = null;
         gameObject.SetActive(false);
@@ -52,9 +60,12 @@ public class ItemMove : MonoBehaviour
         {
             gameObject.layer = 0; //Makes the item undetectable by players
         }
-        else
+        else if (gameObject.GetComponent<ItemInteract>().isRecipe())
         {
-            gameObject.layer = 6; //Makes the item detectable by players
+            gameObject.layer = 10; //Makes the item detectable by players
+        } else
+        {
+            gameObject.layer = 6;
         }
         gameObject.GetComponent<Rigidbody>().isKinematic = toBeDisabled; //Makes the item possible (if true) to affect by physics
         gameObject.GetComponent<Collider>().isTrigger = toBeDisabled; //Makes the item cause (if true) collisions
