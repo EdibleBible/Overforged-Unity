@@ -20,8 +20,14 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
         latestPlayer = player;
         if (stuckObject == null && latestPlayer.HasItem())
         {
-            stuckObjectScript = gameObject.GetComponent<IRecipeInitializer>().InitializeRecipe(item, gameObject);
-            stuckObject = stuckObjectScript.gameObject;
+            if (item.IsRecipe())
+            {
+                item.Place(player, this, transform);
+            } else
+            {
+                stuckObjectScript = gameObject.GetComponent<IRecipeInitializer>().InitializeRecipe(item, gameObject);
+                stuckObject = stuckObjectScript.gameObject;
+            }
             if (stuckObject)
             {
                 stuckObject.GetComponent<IItemRecipe>().RecipeInteract(latestPlayer, item, this);
@@ -44,7 +50,7 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
         {
             if (stuckObject)
             {
-                stuckObjectScript.PickUp(player);
+                stuckObjectScript.PickUp(player); 
                 stuckObject = null;
                 gameObject.layer = 7;
             }
@@ -59,6 +65,7 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
         gameObject.layer = 0;
         Destroy(stuckObject);
         stuckObject = Instantiate(prefab, gameObject.transform);
+        stuckObjectScript = stuckObject.GetComponent<ItemInteract>();
         stuckObject.SetActive(false);
         stuckObject.GetComponent<ItemInteract>().DisableItem(true);
         stuckObject.GetComponent<ItemBaseScript>().itemValue = value;

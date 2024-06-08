@@ -16,7 +16,7 @@ public class SlotInteract : MonoBehaviour, IPlayerItem
         }
         else if (!player.HasItem() &&  HasItem())
         {
-            item.PickUp(player, this);
+            stuckItem.GetComponent<ItemInteract>().PickUp(player, this);
             gameObject.layer = 8;
             Debug.Log("Picked up: " + stuckItem.name);
         }
@@ -39,6 +39,7 @@ public class SlotInteract : MonoBehaviour, IPlayerItem
     public void SetItem(GameObject item)
     {
         stuckItem = item;
+
     }
 
     public void SetItem(ItemInteract item)
