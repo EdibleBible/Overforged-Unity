@@ -6,7 +6,9 @@
     Move_Left,
     Move_Right,
     Use_Action,
-    PutDown_Action
+    PutDown_Action,
+    SkinChangeUp,
+    SkinChangeDown
 }
 public enum e_PlayerSlot
 {
