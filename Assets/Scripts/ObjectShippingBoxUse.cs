@@ -45,6 +45,8 @@ public class ObjectShippingBoxUse : MonoBehaviour
                     currentLevelInfo.bouquetsShippedRibbon++; // Amount of shipped bouquets with ribbon is increased inside the SO
                     LevelScoreIncreaseEvent?.Invoke(levelScore, true); //Invokes the event which increases the score inside the UI
                 }
+
+                for (int i = 0; i < playerTrigger.transform.childCount; i++) 
                 Destroy(playerTrigger.transform.GetChild(0).gameObject); //Destroys the item held by the player
             }
             PlayerPickupItemRef.heldItem = null;
