@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
             float horizontalInput = Input.GetAxis("Horizontal");
             float verticalInput = Input.GetAxis("Vertical");
 
-            Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * playerWalkingSpeed;
+            Vector3 movement = new Vector3(-verticalInput, 0f, horizontalInput) * playerWalkingSpeed;
 
             rb.velocity = movement;
             if (movement != Vector3.zero)
