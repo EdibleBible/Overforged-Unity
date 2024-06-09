@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3317,7 +3317,7 @@ PrefabInstance:
     - target: {fileID: 3096116724838255863, guid: daa73644d509f31498cf3afd2e281d93,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4714804
+      value: -0.978
       objectReference: {fileID: 0}
     - target: {fileID: 3096116724838255863, guid: daa73644d509f31498cf3afd2e281d93,
         type: 3}
@@ -3327,12 +3327,12 @@ PrefabInstance:
     - target: {fileID: 3096116724838255863, guid: daa73644d509f31498cf3afd2e281d93,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9730217
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3096116724838255863, guid: daa73644d509f31498cf3afd2e281d93,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3096116724838255863, guid: daa73644d509f31498cf3afd2e281d93,
         type: 3}
@@ -3342,7 +3342,7 @@ PrefabInstance:
     - target: {fileID: 3096116724838255863, guid: daa73644d509f31498cf3afd2e281d93,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3096116724838255863, guid: daa73644d509f31498cf3afd2e281d93,
         type: 3}
@@ -3357,7 +3357,7 @@ PrefabInstance:
     - target: {fileID: 3096116724838255863, guid: daa73644d509f31498cf3afd2e281d93,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3096116724838255863, guid: daa73644d509f31498cf3afd2e281d93,
         type: 3}
@@ -6033,7 +6033,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c8e1075c7375c934e85f880c93a88d22,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5965748
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8e1075c7375c934e85f880c93a88d22,
         type: 3}
@@ -6085,6 +6085,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WallsandFloorOF1LV
       objectReference: {fileID: 0}
+    - target: {fileID: 1000579231967034852, guid: c8e1075c7375c934e85f880c93a88d22,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5343563418106825923, guid: c8e1075c7375c934e85f880c93a88d22,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6117,7 +6122,7 @@ PrefabInstance:
     - target: {fileID: 3096116724838255863, guid: daa73644d509f31498cf3afd2e281d93,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3096116724838255863, guid: daa73644d509f31498cf3afd2e281d93,
         type: 3}
