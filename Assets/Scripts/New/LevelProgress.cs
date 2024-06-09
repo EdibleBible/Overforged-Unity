@@ -22,11 +22,11 @@ public class LevelProgress : MonoBehaviour
 
     private void UpdateProgress(ItemInteract item)
     {
-        if (!inventoryDict.ContainsKey(item.info.itemType))
+        if (!inventoryDict.ContainsKey(item.Type()))
         {
-            inventoryDict.Add(item.info.itemType, 0);
+            inventoryDict.Add(item.Type(), 0);
         }
-        inventoryDict[item.info.itemType]++;
-        levelScore += item.info.itemValue;
+        inventoryDict[item.Type()]++;
+        levelScore += item.GetValue();
     }
 }

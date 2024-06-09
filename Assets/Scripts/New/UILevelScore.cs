@@ -22,6 +22,6 @@ public class UILevelScore : MonoBehaviour
 
     void UpdateScore(ItemInteract item)
     {
-        textGui.text = (localScore += item.info.itemValue).ToString();
+        textGui.text = (localScore += item.GetValue()).ToString();
     }
 }

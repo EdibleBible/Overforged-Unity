@@ -67,8 +67,8 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
         stuckObject = Instantiate(prefab, gameObject.transform);
         stuckObjectScript = stuckObject.GetComponent<ItemInteract>();
         stuckObject.SetActive(false);
-        stuckObject.GetComponent<ItemInteract>().DisableItem(true);
-        stuckObject.GetComponent<ItemBaseScript>().itemValue = value;
+        stuckObjectScript.DisableItem(true);
+        stuckObjectScript.SetValue(value);
     }
 
     IEnumerator WaitToCraft(float time)

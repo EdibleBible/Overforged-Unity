@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ItemTypes;
 
 public class ItemInteract : MonoBehaviour, IPlayerItem
 {
@@ -97,5 +98,29 @@ public class ItemInteract : MonoBehaviour, IPlayerItem
             return false;
         }
         return true;
+    }
+
+    public bool IsType(ItemType type)
+    {
+        if (type == info.itemType)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public ItemType Type()
+    {
+        return info.itemType;
+    }
+
+    public int GetValue()
+    {
+        return info.itemValue;
+    }
+
+    public void SetValue(int newValue)
+    {
+        info.itemValue = newValue;
     }
 }
