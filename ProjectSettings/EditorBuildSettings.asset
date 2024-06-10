@@ -32,6 +32,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Flower3.unity
     guid: 1d9cc84b12c11844c9d408cb8e68059b
+  - enabled: 1
+    path: Assets/Levels/Forge1.unity
+    guid: 03fbd791dcee0064d925ba7604151fd1
+  - enabled: 1
+    path: Assets/Levels/Forge2.unity
+    guid: 52e168d6fd479764ab2d324e171048f6
+  - enabled: 1
+    path: Assets/Levels/Forge3.unity
+    guid: e97f544f3c151b240a6c7a62891b0515
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 3363089c29b74b0418b5d57c5fbf5712,
       type: 2}
