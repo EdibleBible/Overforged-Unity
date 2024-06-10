@@ -7,6 +7,7 @@ using static OverForged.GameProgress;
 
 public class UIButtonLevel : MonoBehaviour
 {
+    public SOGameProgress SOGameProgress;
     public static void LoadLevel(Level level)
     {
         SceneManager.LoadScene((int)level);
@@ -19,11 +20,17 @@ public class UIButtonLevel : MonoBehaviour
 
     public static void NextLevel()
     {
-        SceneManager.LoadScene((int)GetLevel()+1);
+        SceneManager.LoadScene((int)SOGameProgress.latestLevel);
     }
 
     public static void Retry()
     {
-        SceneManager.LoadScene((int)GetLevel());
+        SceneManager.LoadScene((int)SOGameProgress.currentLevel);
+    }
+
+    public static void ResumeLevel()
+    {
+        Debug.Log(SOGameProgress.latestLevel);
+        SceneManager.LoadScene((int)SOGameProgress.latestLevel);
     }
 }

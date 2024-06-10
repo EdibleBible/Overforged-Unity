@@ -25,6 +25,8 @@ public class LevelProgress : MonoBehaviour
     {
         ProgressEvent += UpdateProgress;
         GetLevelEvent += GetLevel;
+        GetScoreEvent += GetScore;
+        SOGameProgress.currentLevel = level;
         SceneManager.LoadScene((int)Level.LevelUI, LoadSceneMode.Additive);
         StartCoroutine(StartTimer());
     }
@@ -33,6 +35,7 @@ public class LevelProgress : MonoBehaviour
     {
         ProgressEvent -= UpdateProgress;
         GetLevelEvent -= GetLevel;
+        GetScoreEvent -= GetScore;
     }
 
     private void Start()
@@ -73,8 +76,11 @@ public class LevelProgress : MonoBehaviour
 
     private void FinishLevel()
     {
-        if (LevelPassed() || forcePass)
+        SOGameProgress.currentScore = levelScore;
+        if (forcePass || LevelPassed())
         {
+            SOGameProgress.latestLevel = (level + 1);
+            Debug.Log(SOGameProgress.latestLevel);
             SceneManager.LoadScene((int)Level.LevelFinishedUI, LoadSceneMode.Additive);
         } else
         {
@@ -101,5 +107,10 @@ public class LevelProgress : MonoBehaviour
     public Level GetLevel()
     {
         return level;
+    }
+
+    public int GetScore()
+    {
+        return levelScore;
     }
 }

@@ -16,6 +16,8 @@ namespace OverForged
         public static event ProgressTime ProgressTimeEvent;
         public delegate Level LevelDel();
         public static event LevelDel GetLevelEvent;
+        public delegate int ScoreDel();
+        public static event ScoreDel GetScoreEvent;
 
         public static void UpdateProgress(ItemInteract item)
         {
@@ -30,6 +32,11 @@ namespace OverForged
         public static Level GetLevel()
         {
             return GetLevelEvent.Invoke();
+        }
+
+        public static int GetScore()
+        {
+            return GetScoreEvent.Invoke();
         }
     }
 }
