@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Player1Spawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<GameObject> skinPrefabs = new();
+    private void OnEnable()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Instantiate(skinPrefabs[(int)SOGameProgress.player1Skin], transform);
     }
 }

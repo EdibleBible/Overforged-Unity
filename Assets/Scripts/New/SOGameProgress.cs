@@ -17,4 +17,5 @@ public class SOGameProgress : ScriptableObject
     }
     public static PlayerSkins player1Skin = PlayerSkins.Default;
     public static PlayerSkins player2Skin = PlayerSkins.Default;
+    public static bool toggleMultiplayer = true;
 }

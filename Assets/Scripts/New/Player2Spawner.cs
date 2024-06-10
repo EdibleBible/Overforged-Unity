@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Player2Spawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<GameObject> skinPrefabs = new();
+    private void OnEnable()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (SOGameProgress.toggleMultiplayer)
+        {
+            Instantiate(skinPrefabs[(int)SOGameProgress.player2Skin], transform);
+        }
     }
 }
