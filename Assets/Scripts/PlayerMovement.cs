@@ -9,14 +9,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject playerModel;
     [SerializeField] Rigidbody rb;
     private bool playerCanMove = true;
+    public float horizontalInput;
+    public float verticalInput;
 
     void Update()
     {
         if (playerCanMove)
         {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-
             Vector3 movement = new Vector3(-verticalInput, 0f, horizontalInput) * playerWalkingSpeed;
 
             rb.velocity = movement;
