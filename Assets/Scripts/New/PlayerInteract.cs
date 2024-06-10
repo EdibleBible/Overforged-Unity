@@ -15,23 +15,22 @@ public class PlayerInteract : MonoBehaviour
     public GameObject itemObject;  //Game object of the item that is held by the player
     public PlayerMovement movement;
 
-    void Update()
+    public void KeyInteract()
     {
-        if (Input.GetKeyDown(KeyCode.E)) //Whenever E key is pressed
+        closestGameObject = DetectInteractives(KeyCode.E);
+        closestGameObject.GetComponent<IPlayerInteractive>()?.PlayerInteract(this, GetItemScript()); //Interact with the GameObject
+    }
+
+    public void KeyItem()
+    {
+        closestGameObject = DetectInteractives(KeyCode.Q);
+        if (closestGameObject == gameObject && itemObject)
         {
-            closestGameObject = DetectInteractives(KeyCode.E);
-            closestGameObject.GetComponent<IPlayerInteractive>()?.PlayerInteract(this, GetItemScript()); //Interact with the GameObject
+            itemObject.GetComponent<IPlayerItem>().PlayerItemInteraction(this, GetItemScript()); //Interact with the GameObject
         }
-        else if (Input.GetKeyDown(KeyCode.Q)) //Whenever Q key is pressed
+        else
         {
-            closestGameObject = DetectInteractives(KeyCode.Q);
-            if (closestGameObject == gameObject && itemObject)
-            {
-                itemObject.GetComponent<IPlayerItem>().PlayerItemInteraction(this, GetItemScript()); //Interact with the GameObject
-            } else
-            {
-                closestGameObject.GetComponent<IPlayerItem>()?.PlayerItemInteraction(this, GetItemScript()); //Interact with the GameObject
-            }
+            closestGameObject.GetComponent<IPlayerItem>()?.PlayerItemInteraction(this, GetItemScript()); //Interact with the GameObject
         }
     }
 
