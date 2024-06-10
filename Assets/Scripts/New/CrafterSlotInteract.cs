@@ -71,6 +71,12 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
         stuckObjectScript.SetValue(value);
     }
 
+    public void Craft(List<GameObject> prefabList, float timeInterval, int value)
+    {
+        GameObject prefab = prefabList[Random.Range(0, prefabList.Count)];
+        Craft(prefab, timeInterval, value);
+    }
+
     IEnumerator WaitToCraft(float time)
     {
         yield return new WaitForSeconds(time);

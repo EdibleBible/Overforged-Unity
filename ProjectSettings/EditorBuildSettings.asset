@@ -6,32 +6,41 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: ef7cabae8cbe9174f99c2372863c0c16
+    path: Assets/Levels/MenuUI.unity
+    guid: 79e0b719d797e5947ad4a1c3cac7994d
   - enabled: 1
     path: Assets/Levels/TestLevel.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/Florist1.unity
-    guid: 51a910578182f9f499df3164063ccd46
-  - enabled: 0
-    path: Assets/Scenes/Florist3.unity
-    guid: b33e237bdde6e1147ad8d19f734e4d8a
-  - enabled: 0
-    path: Assets/Scenes/Florist2.unity
-    guid: 9a392e43ccbcdbf4e9da382b22ac649b
-  - enabled: 0
-    path: Assets/Scenes/Forge0.unity
-    guid: 7c9a103bfca959d4d834a5f1ef2504ca
-  - enabled: 0
-    path: Assets/Scenes/Forge1.unity
-    guid: da0fcbf8ea8fcd94aaea87c2aac6d222
-  - enabled: 0
-    path: Assets/Scenes/Forge2.unity
-    guid: d691f90b9daaf0249b0fe387ce83f5d4
   - enabled: 1
-    path: Assets/Scenes/UIFinishLevel.unity
-    guid: 356de66f38cfe3749a3de8682c4fa47e
+    path: Assets/Levels/LevelSelectUI.unity
+    guid: 3dc6b44c66bdc3f428881e4851fb0bd0
+  - enabled: 1
+    path: Assets/Levels/LevelUI.unity
+    guid: 8eba1ef6966f3d84cb4636bffb7633e0
+  - enabled: 1
+    path: Assets/Levels/LevelPassedUI.unity
+    guid: f6b7df3f44fe7374a8e2f0fb90009996
+  - enabled: 1
+    path: Assets/Levels/LevelFailedUI.unity
+    guid: 93915c54f61f18f418e62bb7fbc80e25
+  - enabled: 1
+    path: Assets/Levels/Flower1.unity
+    guid: 9d4aff2c40df0d6459c55e13bec06fb9
+  - enabled: 1
+    path: Assets/Levels/Flower2.unity
+    guid: d11f95c90ddf64e48a199118361bdd22
+  - enabled: 1
+    path: Assets/Levels/Flower3.unity
+    guid: 1d9cc84b12c11844c9d408cb8e68059b
+  - enabled: 1
+    path: Assets/Levels/Forge1.unity
+    guid: 03fbd791dcee0064d925ba7604151fd1
+  - enabled: 1
+    path: Assets/Levels/Forge2.unity
+    guid: 52e168d6fd479764ab2d324e171048f6
+  - enabled: 1
+    path: Assets/Levels/Forge3.unity
+    guid: e97f544f3c151b240a6c7a62891b0515
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 3363089c29b74b0418b5d57c5fbf5712,
       type: 2}
