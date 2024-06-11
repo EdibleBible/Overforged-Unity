@@ -7,6 +7,8 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
     public GameObject stuckObject = null;
     private ItemInteract stuckObjectScript = null;
     private PlayerInteract latestPlayer;
+    public GameObject clockObject;
+    public UIIconClock clock;
 
     public void PlayerInteract(PlayerInteract player, ItemInteract item)
     {
@@ -60,6 +62,8 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
 
     public void Craft(GameObject prefab, float timeInterval, int value)
     {
+        clockObject.SetActive(true);
+        clock.Craft(timeInterval);
         StartCoroutine(WaitToCraft(timeInterval));
         latestPlayer.movement.PlayerCanMove(false);
         gameObject.layer = 0;
