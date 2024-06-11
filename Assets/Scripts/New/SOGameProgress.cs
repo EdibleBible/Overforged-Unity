@@ -24,11 +24,11 @@ public class SOGameProgress : ScriptableObject
     {
         skinUnlocked.Add(true);
         skinUnlocked.Add(true);
-        skinUnlocked.Add(false);
-        skinUnlocked.Add(false);
-        skinUnlocked.Add(false);
-        skinUnlocked.Add(false);
-        skinUnlocked.Add(false);
+        skinUnlocked.Add(true);
+        skinUnlocked.Add(true);
+        skinUnlocked.Add(true);
+        skinUnlocked.Add(true);
+        skinUnlocked.Add(true);
     }
 
     public static void EquipSkin1(int skinInt)

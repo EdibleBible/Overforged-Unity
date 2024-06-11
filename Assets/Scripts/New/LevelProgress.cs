@@ -79,6 +79,7 @@ public class LevelProgress : MonoBehaviour
         SOGameProgress.currentScore = levelScore;
         if (forcePass || LevelPassed())
         {
+            SOGameProgress.skinUnlocked[(int)level-5] = true;
             SOGameProgress.latestLevel = (level + 1);
             Debug.Log(SOGameProgress.latestLevel);
             SceneManager.LoadScene((int)Level.LevelFinishedUI, LoadSceneMode.Additive);
