@@ -13,6 +13,11 @@ public class UIButtonLevel : MonoBehaviour
         SceneManager.LoadScene((int)level);
     }
 
+    public static void LoadLevel(int level)
+    {
+        SceneManager.LoadScene(level);
+    }
+
     public static void MainMenu()
     {
         SceneManager.LoadScene(0);
@@ -32,5 +37,10 @@ public class UIButtonLevel : MonoBehaviour
     {
         Debug.Log(SOGameProgress.latestLevel);
         SceneManager.LoadScene((int)SOGameProgress.latestLevel);
+    }
+
+    public static void SelectLevel()
+    {
+        SceneManager.LoadScene(2);
     }
 }
