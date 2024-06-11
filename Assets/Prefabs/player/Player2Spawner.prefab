@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinPrefabs:
   - {fileID: 824069409169748169, guid: fdbc548f69582904ea71d3791da7f147, type: 3}
+  - {fileID: 3873812954387146493, guid: 2c59611a5354c2946823554286266f5d, type: 3}
   - {fileID: 3873812954387146493, guid: 10a7708fe29669640af21b37cc551326, type: 3}
   - {fileID: 3873812954387146493, guid: bdcd5327712a84244a7d310fb96b5ca3, type: 3}
   - {fileID: 3873812954387146493, guid: 74a3bd722a693244bb3d07c84f1e2edf, type: 3}
