@@ -9,8 +9,14 @@ public class UIShowEscapeMenu : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            menu.SetActive(true); //Enables the menu object
-            Time.timeScale = 0f; //Stops the game clock
+            if (menu.activeInHierarchy)
+            {
+                CloseMenu();
+            } else
+            {
+                menu.SetActive(true); //Enables the menu object
+                Time.timeScale = 0f; //Stops the game clock
+            }
         }
     }
 

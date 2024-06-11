@@ -20,6 +20,7 @@ public class UIButtonLevel : MonoBehaviour
 
     public static void MainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 
@@ -30,11 +31,13 @@ public class UIButtonLevel : MonoBehaviour
 
     public static void Retry()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene((int)SOGameProgress.currentLevel);
     }
 
     public static void ResumeLevel()
     {
+        Time.timeScale = 1f;
         Debug.Log(SOGameProgress.latestLevel);
         SceneManager.LoadScene((int)SOGameProgress.latestLevel);
     }
