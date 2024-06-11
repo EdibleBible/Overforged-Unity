@@ -44,6 +44,10 @@ public class LevelProgress : MonoBehaviour
         {
             requiredDict.Add(requiredItems[i], requiredItemCounts[i]);
         }
+        for (int i = 0; i < requiredItems.Count; i++)
+        {
+            inventoryDict.Add(requiredItems[i], 0);
+        }
     }
 
     private void UpdateProgress(ItemInteract item)
