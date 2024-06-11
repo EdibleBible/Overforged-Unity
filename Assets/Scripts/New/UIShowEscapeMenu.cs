@@ -7,7 +7,7 @@ public class UIShowEscapeMenu : MonoBehaviour
     [SerializeField] private GameObject menu; //Escape menu overlay parent object
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (menu.activeInHierarchy)
             {

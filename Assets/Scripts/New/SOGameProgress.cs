@@ -13,10 +13,10 @@ public class SOGameProgress : ScriptableObject
     public static Level currentLevel;
     public enum PlayerSkins
     {
-        Default, FlowerGardener, FlowerBoy, FlowerBee, ForgeBlacksmith, ForgeAstronaut, ForgeBear
+        Default, DefaultBlue, FlowerGardener, FlowerBoy, FlowerBee, ForgeBlacksmith, ForgeAstronaut, ForgeBear
     }
     public static PlayerSkins player1Skin = PlayerSkins.Default;
-    public static PlayerSkins player2Skin = PlayerSkins.Default;
+    public static PlayerSkins player2Skin = PlayerSkins.DefaultBlue;
     public static bool toggleMultiplayer = true;
     public static List<bool> skinUnlocked = new();
 
@@ -24,11 +24,12 @@ public class SOGameProgress : ScriptableObject
     {
         skinUnlocked.Add(true);
         skinUnlocked.Add(true);
-        skinUnlocked.Add(true);
-        skinUnlocked.Add(true);
-        skinUnlocked.Add(true);
-        skinUnlocked.Add(true);
-        skinUnlocked.Add(true);
+        skinUnlocked.Add(false);
+        skinUnlocked.Add(false);
+        skinUnlocked.Add(false);
+        skinUnlocked.Add(false);
+        skinUnlocked.Add(false);
+        skinUnlocked.Add(false);
     }
 
     public static void EquipSkin1(int skinInt)
@@ -38,16 +39,18 @@ public class SOGameProgress : ScriptableObject
             case 0:
                 player1Skin = PlayerSkins.Default; break;
             case 1:
-                player1Skin = PlayerSkins.FlowerGardener; break;
+                player1Skin = PlayerSkins.DefaultBlue; break;
             case 2:
-                player1Skin = PlayerSkins.FlowerBoy; break;
+                player1Skin = PlayerSkins.FlowerGardener; break;
             case 3:
-                player1Skin = PlayerSkins.FlowerBee; break;
+                player1Skin = PlayerSkins.FlowerBoy; break;
             case 4:
-                player1Skin = PlayerSkins.ForgeBlacksmith; break;
+                player1Skin = PlayerSkins.FlowerBee; break;
             case 5:
-                player1Skin = PlayerSkins.ForgeAstronaut; break;
+                player1Skin = PlayerSkins.ForgeBlacksmith; break;
             case 6:
+                player1Skin = PlayerSkins.ForgeAstronaut; break;
+            case 7:
                 player1Skin = PlayerSkins.ForgeBear; break;
         }
     }
@@ -58,16 +61,18 @@ public class SOGameProgress : ScriptableObject
             case 0:
                 player2Skin = PlayerSkins.Default; break;
             case 1:
-                player2Skin = PlayerSkins.FlowerGardener; break;
+                player2Skin = PlayerSkins.DefaultBlue; break;
             case 2:
-                player2Skin = PlayerSkins.FlowerBoy; break;
+                player2Skin = PlayerSkins.FlowerGardener; break;
             case 3:
-                player2Skin = PlayerSkins.FlowerBee; break;
+                player2Skin = PlayerSkins.FlowerBoy; break;
             case 4:
-                player2Skin = PlayerSkins.ForgeBlacksmith; break;
+                player2Skin = PlayerSkins.FlowerBee; break;
             case 5:
-                player2Skin = PlayerSkins.ForgeAstronaut; break;
+                player2Skin = PlayerSkins.ForgeBlacksmith; break;
             case 6:
+                player2Skin = PlayerSkins.ForgeAstronaut; break;
+            case 7:
                 player2Skin = PlayerSkins.ForgeBear; break;
         }
     }
