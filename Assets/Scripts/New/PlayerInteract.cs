@@ -1,13 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private Transform detectionBox;
     public Vector3 boxSize = new(0.1f, 1, 1);  // Size of the detection box
-    public LayerMask interactWithItem;  // LayerMask to filter the detected objects when the player holds an item
-    public LayerMask interactWithNoItem;  // LayerMask to filter the detected objects when the player holds an item
-    public LayerMask useItemWithItem;  // LayerMask to filter the detected objects when the player holds an item
-    public LayerMask useItemWithNoItem;  // LayerMask to filter the detected objects when the player holds an item
+    public LayerMask EItem;  // LayerMask to filter the detected objects when the player holds an item
+    public LayerMask EEmpty;  // LayerMask to filter the detected objects when the player holds an item
+    public LayerMask QItem;  // LayerMask to filter the detected objects when the player holds an item
+    public LayerMask QEmpty;  // LayerMask to filter the detected objects when the player holds an item
     private float closestObjectDistance;  //Distance between the detection box center & the closest point of the closest detected object
     private Collider closestCollider;  //Collider of the closest object
     private GameObject closestGameObject;
@@ -17,49 +21,42 @@ public class PlayerInteract : MonoBehaviour
 
     public void KeyInteract()
     {
-        closestGameObject = DetectInteractives(KeyCode.E);
-        closestGameObject.GetComponent<IPlayerInteractive>()?.PlayerInteract(this, GetItemScript()); //Interact with the GameObject
+        if (itemObject)
+        {
+            closestGameObject = DetectInteractives(EItem);
+            closestGameObject.GetComponent<IInteractEItem>()?.InteractEItem(this, GetItemScript());
+        } else
+        {
+            closestGameObject = DetectInteractives(EEmpty);
+            closestGameObject.GetComponent<IInteractEEmpty>()?.InteractEEmpty(this);
+        }
     }
 
     public void KeyItem()
     {
-        closestGameObject = DetectInteractives(KeyCode.Q);
-        if (closestGameObject == gameObject && itemObject)
+        if (itemObject)
         {
-            itemObject.GetComponent<IPlayerItem>().PlayerItemInteraction(this, GetItemScript()); //Interact with the GameObject
+            closestGameObject = DetectInteractives(QItem);
+            if (closestGameObject == gameObject)
+            {
+                itemObject.GetComponent<IInteractQItem>()?.InteractQItem(this, GetItemScript());
+            }
+            else
+            {
+                closestGameObject.GetComponent<IInteractQItem>()?.InteractQItem(this, GetItemScript());
+            }
         }
         else
         {
-            closestGameObject.GetComponent<IPlayerItem>()?.PlayerItemInteraction(this, GetItemScript()); //Interact with the GameObject
+            closestGameObject = DetectInteractives(QEmpty);
+            closestGameObject.GetComponent<IInteractQEmpty>()?.InteractQEmpty(this);
         }
     }
 
-    private GameObject DetectInteractives(KeyCode keyCode) //Detects the closest GameObject which can be interacted with
+/*private GameObject DetectInteractives(LayerMask mask) //Detects the closest GameObject which can be interacted with
     {
-        LayerMask detectionLayer = new();
-        switch (keyCode) {
-            case KeyCode.E:
-                if (itemObject)
-                {
-                    detectionLayer = interactWithItem;
-                } else
-                {
-                    detectionLayer = interactWithNoItem;
-                }
-                break;
-            case KeyCode.Q:
-                if (itemObject)
-                {
-                    detectionLayer = useItemWithItem;
-                }
-                else
-                {
-                    detectionLayer = useItemWithNoItem;
-                }
-                break;
-        }
         Vector3 triggerCenter = detectionBox.position; //Gets the center position of this object
-        Collider[] hitColliders = Physics.OverlapBox(triggerCenter, boxSize / 2, gameObject.transform.rotation, detectionLayer); //Makes a list of all colliders which hit this object
+        Collider[] hitColliders = Physics.OverlapBox(triggerCenter, boxSize / 2, gameObject.transform.rotation, mask); //Makes a list of all colliders which hit this object
         if (hitColliders.Length == 0) { closestCollider = null; return gameObject; };
         float distance = Vector3.Distance(hitColliders[0].ClosestPoint(detectionBox.position), triggerCenter); //Saves the distance to the first collider
         closestCollider = hitColliders[0]; //Saves a reference to the first collider
@@ -72,6 +69,22 @@ public class PlayerInteract : MonoBehaviour
                 closestCollider = collider; //Replaces the reference to the closest collider
             }
         }
+        return closestCollider.gameObject;
+    }*/
+
+    private GameObject DetectInteractives(LayerMask mask) //Detects the closest GameObject which can be interacted with
+    {
+        Vector3 triggerCenter = detectionBox.position; //Gets the center position of this object
+        Collider[] hitColliders = Physics.OverlapBox(triggerCenter, boxSize / 2, gameObject.transform.rotation, mask); //Makes a list of all colliders which hit this object
+        if (hitColliders.Length == 0) { closestCollider = null; return gameObject; };
+        Dictionary<Collider, float> proximityDict = new();
+        foreach (Collider collider in hitColliders)
+        {
+            float distance = Vector3.Distance(collider.ClosestPoint(detectionBox.position), triggerCenter);
+            proximityDict.Add(collider, distance);
+        }
+        var sortedDict = proximityDict.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+        closestCollider = sortedDict.Keys.First();
         return closestCollider.gameObject;
     }
 

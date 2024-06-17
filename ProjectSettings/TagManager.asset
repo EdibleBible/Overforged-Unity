@@ -21,15 +21,15 @@ TagManager:
   - SlotEmpty
   - SlotTaken
   - PickupRecipe
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - EItem
+  - EEmpty
+  - QItem
+  - QEmpty
+  - QEItem
+  - QEEmpty
+  - Q
+  - E
+  - QE
   - 
   - 
   - 

@@ -1,30 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class SlotInteract : MonoBehaviour, IPlayerItem
+public class SlotInteract : MonoBehaviour, IInteractEEmpty, IInteractEItem, IInteract
 {
     public GameObject stuckItem;
 
-    public void PlayerItemInteraction(PlayerInteract player, ItemInteract item)
+    public bool InteractCheck(PlayerInteract player, ItemInteract item)
     {
-        if (player.HasItem() && !HasItem())
+        if (item != null && !HasItem() || item == null && HasItem())
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool InteractEItem(PlayerInteract player, ItemInteract item)
+    {
+        if (!HasItem())
         {
             item.Place(player, this, gameObject.transform);
-            gameObject.layer = 9;
+            gameObject.layer = 12;
             Debug.Log("Placed: " + stuckItem.name);
+            return true;
         }
-        else if (!player.HasItem() &&  HasItem())
+        return false;
+    }
+
+    public bool InteractEEmpty(PlayerInteract player)
+    {
+        if (HasItem())
         {
             stuckItem.GetComponent<ItemInteract>().PickUp(player, this);
-            gameObject.layer = 8;
+            gameObject.layer = 11;
             Debug.Log("Picked up: " + stuckItem.name);
+            return true;
         }
+        return false;
     }
 
     public void DisableSlot(bool toBeDisabled)
     {
-        if (toBeDisabled) { gameObject.layer = 0; } else { gameObject.layer = 8; }
+        if (toBeDisabled) { gameObject.layer = 0; } else { gameObject.layer = 11; }
     }
 
     public bool HasItem()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerItem
+public class CrafterSlotInteract : MonoBehaviour, IInteractEEmpty, IInteractEItem, IInteractQEmpty, IInteractQItem, IInteract
 {
     public GameObject stuckObject = null;
     private ItemInteract stuckObjectScript = null;
@@ -10,55 +10,69 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
     public GameObject clockObject;
     public UIIconClock clock;
 
-    public void PlayerInteract(PlayerInteract player, ItemInteract item)
+    public bool InteractCheck(PlayerInteract player, ItemInteract item)
     {
-        /*if (stuckObject && !stuckObject.GetComponent<ItemInteract>().isRecipe())
-        {
-            stuckObject.GetComponent<ItemMove>().PickUpItem(player);
-            stuckObject = null;
-            gameObject.layer = 7;
-            return;
-        }*/
+        throw new System.NotImplementedException();
+    }
+
+    public bool InteractEEmpty(PlayerInteract player)
+    {
         latestPlayer = player;
-        if (stuckObject == null && latestPlayer.HasItem())
+        if (stuckObject)
         {
+            if (stuckObjectScript.IsRecipe())
+            {
+                stuckObject.GetComponent<IItemRecipe>().RecipeInteract(latestPlayer, null, this);
+                return true;
+            }
+            stuckObjectScript.PickUp(player);
+            stuckObject = null;
+            return true;
+        }
+        return false;
+    }
+
+    public bool InteractEItem(PlayerInteract player, ItemInteract item)
+    {
+        latestPlayer = player;
+        if (stuckObject == null)
+        { 
             if (item.IsRecipe())
             {
                 item.Place(player, this, transform);
-            } else
+                return true;
+            }
+            else
             {
                 stuckObjectScript = gameObject.GetComponent<IRecipeInitializer>().InitializeRecipe(item, gameObject);
                 stuckObject = stuckObjectScript.gameObject;
+                return true;
             }
-            if (stuckObject)
-            {
-                stuckObject.GetComponent<IItemRecipe>().RecipeInteract(latestPlayer, item, this);
-            }
-        } else if (stuckObject)
-        {
-            stuckObject.GetComponent<IItemRecipe>().RecipeInteract(latestPlayer, item, this);
         }
+        stuckObject.GetComponent<IItemRecipe>().RecipeInteract(latestPlayer, item, this);
+        return false;
     }
 
-    public void PlayerItemInteraction(PlayerInteract player, ItemInteract item)
+    public bool InteractQEmpty(PlayerInteract player)
     {
-        if (player.HasItem())
+        if (stuckObject)
         {
-            if (stuckObject == null && item.IsRecipe())
-            {
-                item.Place(player, this, transform);
-            }
-        } else
-        {
-            if (stuckObject)
-            {
-                stuckObjectScript.PickUp(player); 
-                stuckObject = null;
-                gameObject.layer = 7;
-            }
+            stuckObjectScript.PickUp(player);
+            stuckObject = null;
+            return true;
         }
+        return false;
     }
 
+    public bool InteractQItem(PlayerInteract player, ItemInteract item)
+    {
+        if (stuckObject == null && item.IsRecipe())
+        {
+            item.Place(player, this, transform);
+            return true;
+        }
+        return false;
+    }
 
     public void Craft(GameObject prefab, float timeInterval, int value)
     {
@@ -90,7 +104,7 @@ public class CrafterSlotInteract : MonoBehaviour, IPlayerInteractive, IPlayerIte
     void FinishCrafting()
     {
         latestPlayer.movement.PlayerCanMove(true);
-        gameObject.layer = 9;
+        gameObject.layer = 19;
         stuckObject.SetActive(true);
     }
 

@@ -56,7 +56,7 @@ public class RecipeGeneric : MonoBehaviour, IItemRecipe
         return true;
     }
 
-    bool InventoryFull()
+    public bool InventoryFull()
     {
         foreach (var itemType in inventoryDict.Keys)
         {

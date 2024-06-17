@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using static ItemTypes;
 
-public class ItemInteract : MonoBehaviour, IPlayerItem
+public class ItemInteract : MonoBehaviour, IInteractQEmpty, IInteractQItem
 {
     public ItemBaseScript info;
     public enum PickupType {item, recipe};
     public PickupType pickupType;
-    public void PlayerItemInteraction(PlayerInteract player, ItemInteract item) //Method which runs when the player presses Q
+
+    public bool InteractQItem(PlayerInteract player, ItemInteract item)
     {
-        if (player.HasItem()) //If the player holds no item, the item is picked up
-        {
-            Drop(player); //Drops the item from the player's slot
-            Debug.Log("Dropped: " + gameObject.name);
-        }
-        else //If the player holds any item already, the item is dropped freely
-        {
-            PickUp(player); //Places the item into player's slot, so it's picked up
-            Debug.Log("Picked up: " + gameObject.name);
-        }
+        Drop(player); //Drops the item from the player's slot
+        Debug.Log("Dropped: " + gameObject.name);
+        return true;
+    }
+
+    public bool InteractQEmpty(PlayerInteract player)
+    {
+        PickUp(player); //Places the item into player's slot, so it's picked up
+        Debug.Log("Picked up: " + gameObject.name);
+        return true;
     }
 
     public void PickUp(PlayerInteract player) //Runs when the item is picked up by the player into their hands
@@ -77,15 +78,11 @@ public class ItemInteract : MonoBehaviour, IPlayerItem
     {
         if (toBeDisabled)
         {
-            gameObject.layer = 0; //Makes the item undetectable by players
-        }
-        else if (IsRecipe())
-        {
-            gameObject.layer = 10; //Makes the item detectable by players
+            gameObject.layer = 0;
         }
         else
         {
-            gameObject.layer = 6;
+            gameObject.layer = 14;
         }
         gameObject.GetComponent<Rigidbody>().isKinematic = toBeDisabled; //Makes the item possible (if true) to affect by physics
         gameObject.GetComponent<Collider>().isTrigger = toBeDisabled; //Makes the item cause (if true) collisions
