@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UIButtonSkinMenu : MonoBehaviour
 {
+    public SOGameProgress progress;
     public List<GameObject> skinObjects = new();
     public int playerInt;
     public int currentSkin;
@@ -12,12 +13,17 @@ public class UIButtonSkinMenu : MonoBehaviour
     {
         if (playerInt == 1)
         {
-            currentSkin = (int)SOGameProgress.player1Skin;
+            currentSkin = (int)progress.player1Skin;
         } else if (playerInt == 2)
         {
-            currentSkin = (int)SOGameProgress.player2Skin;
+            currentSkin = (int)progress.player2Skin;
         }
         skinObjects[currentSkin].SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        skinObjects[currentSkin].SetActive(false);
     }
 
     public void Next()

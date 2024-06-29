@@ -6,11 +6,12 @@ using static OverForged.GameProgress;
 
 public class UIMenuSkinSprite : MonoBehaviour
 {
+    public SOGameProgress progress;
     public int skinInt;
     public Image sprite;
     private void OnEnable()
     {
-        if (!SOGameProgress.skinUnlocked[skinInt])
+        if (!progress.skinUnlocked[skinInt])
         {
             sprite.color = Color.black;
         }

@@ -388,6 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab3356db3c2b5c43a70773cf1f64a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progress: {fileID: 11400000, guid: 5db981d6ade6a674da51e8ea624e45d2, type: 2}
 --- !u!1 &272575766
 GameObject:
   m_ObjectHideFlags: 0

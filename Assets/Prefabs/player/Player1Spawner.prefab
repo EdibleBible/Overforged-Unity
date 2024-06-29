@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce45392e25d939498179f1d5d3e972d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progress: {fileID: 11400000, guid: 5db981d6ade6a674da51e8ea624e45d2, type: 2}
   skinPrefabs:
   - {fileID: 3873812954387146493, guid: d5878ec47f05d7f459005de0a42b75ef, type: 3}
   - {fileID: 3873812954387146493, guid: 25b776b880b9d7d41945bd1a28accf6b, type: 3}

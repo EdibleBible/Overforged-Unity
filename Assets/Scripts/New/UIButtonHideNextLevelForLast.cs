@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class UIButtonHideNextLevelForLast : MonoBehaviour
 {
+    public SOGameProgress progress;
     private void OnEnable()
     {
-        if (SOGameProgress.latestLevel == OverForged.GameProgress.Level.Forge3)
+        if (progress.latestLevel == OverForged.GameProgress.Level.Forge3)
         {
             gameObject.SetActive(false);
         }

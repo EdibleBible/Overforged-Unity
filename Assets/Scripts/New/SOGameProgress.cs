@@ -8,17 +8,17 @@ using static OverForged.GameProgress;
 public class SOGameProgress : ScriptableObject
 {
     public int unlockedLevel;
-    public static Level latestLevel = Level.Flower1;
-    public static int currentScore;
-    public static Level currentLevel;
+    public Level latestLevel = Level.Flower1;
+    public int currentScore;
+    public Level currentLevel;
     public enum PlayerSkins
     {
         Default, DefaultBlue, FlowerGardener, FlowerBoy, FlowerBee, ForgeBlacksmith, ForgeAstronaut, ForgeBear
     }
-    public static PlayerSkins player1Skin = PlayerSkins.Default;
-    public static PlayerSkins player2Skin = PlayerSkins.DefaultBlue;
-    public static bool toggleMultiplayer = true;
-    public static List<bool> skinUnlocked = new();
+    public PlayerSkins player1Skin = PlayerSkins.Default;
+    public PlayerSkins player2Skin = PlayerSkins.DefaultBlue;
+    public bool toggleMultiplayer = true;
+    public List<bool> skinUnlocked = new();
 
     private void OnEnable()
     {
@@ -32,7 +32,7 @@ public class SOGameProgress : ScriptableObject
         skinUnlocked.Add(false);
     }
 
-    public static void EquipSkin1(int skinInt)
+    public void EquipSkin1(int skinInt)
     {
         switch (skinInt)
         {
@@ -54,7 +54,7 @@ public class SOGameProgress : ScriptableObject
                 player1Skin = PlayerSkins.ForgeBear; break;
         }
     }
-    public static void EquipSkin2(int skinInt)
+    public void EquipSkin2(int skinInt)
     {
         switch (skinInt)
         {

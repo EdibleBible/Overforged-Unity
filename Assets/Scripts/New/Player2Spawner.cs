@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Player2Spawner : MonoBehaviour
 {
+    public SOGameProgress progress;
     public List<GameObject> skinPrefabs = new();
     private void OnEnable()
     {
-        if (SOGameProgress.toggleMultiplayer)
+        if (progress.toggleMultiplayer)
         {
-            Instantiate(skinPrefabs[(int)SOGameProgress.player2Skin], transform);
+            Instantiate(skinPrefabs[(int)progress.player2Skin], transform);
         }
     }
 }

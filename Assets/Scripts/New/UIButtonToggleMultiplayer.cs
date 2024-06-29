@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class UIButtonToggleMultiplayer : MonoBehaviour
 {
+    public SOGameProgress progress;
     public GameObject SelectedSingle;
     public GameObject SelectedMulti;
 
     private void OnEnable()
     {
-        if (SOGameProgress.toggleMultiplayer == false)
+        if (progress.toggleMultiplayer == false)
         {
             SelectedSingle.SetActive(true);
             SelectedMulti.SetActive(false);
@@ -17,13 +18,13 @@ public class UIButtonToggleMultiplayer : MonoBehaviour
     }
     public void Singleplayer()
     {
-        SOGameProgress.toggleMultiplayer = false;
+        progress.toggleMultiplayer = false;
         SelectedSingle.SetActive(true);
         SelectedMulti.SetActive(false);
     }
     public void Multiplayer()
     {
-        SOGameProgress.toggleMultiplayer = true;
+        progress.toggleMultiplayer = true;
         SelectedSingle.SetActive(false);
         SelectedMulti.SetActive(true);
     }

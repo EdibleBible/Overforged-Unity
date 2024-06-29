@@ -5,6 +5,7 @@ using static OverForged.GameProgress;
 
 public class UILevelDisplayController : MonoBehaviour
 {
+    public SOGameProgress progress;
     public GameObject Flower1Order;
     public GameObject Flower2Order;
     public GameObject Flower3Order;
@@ -14,7 +15,7 @@ public class UILevelDisplayController : MonoBehaviour
 
     private void Awake()
     {
-        Level orderLevel = SOGameProgress.currentLevel;
+        Level orderLevel = progress.currentLevel;
         switch (orderLevel)
         {
             case Level.Flower1:

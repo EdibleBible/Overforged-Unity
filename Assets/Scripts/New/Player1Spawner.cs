@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Player1Spawner : MonoBehaviour
 {
+    public SOGameProgress progress;
     public List<GameObject> skinPrefabs = new();
     private void OnEnable()
     {
-        Instantiate(skinPrefabs[(int)SOGameProgress.player1Skin], transform);
+        Instantiate(skinPrefabs[(int)progress.player1Skin], transform);
     }
 }

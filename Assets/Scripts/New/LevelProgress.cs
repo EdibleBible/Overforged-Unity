@@ -26,7 +26,7 @@ public class LevelProgress : MonoBehaviour
         ProgressEvent += UpdateProgress;
         GetLevelEvent += GetLevel;
         GetScoreEvent += GetScore;
-        SOGameProgress.currentLevel = level;
+        progressData.currentLevel = level;
         SceneManager.LoadScene((int)Level.LevelUI, LoadSceneMode.Additive);
         StartCoroutine(StartTimer());
     }
@@ -80,12 +80,12 @@ public class LevelProgress : MonoBehaviour
 
     private void FinishLevel()
     {
-        SOGameProgress.currentScore = levelScore;
+        progressData.currentScore = levelScore;
         if (forcePass || LevelPassed())
         {
-            SOGameProgress.skinUnlocked[(int)level-4] = true;
-            SOGameProgress.latestLevel = (level + 1);
-            Debug.Log(SOGameProgress.latestLevel);
+            progressData.skinUnlocked[(int)level-4] = true;
+            progressData.latestLevel = (level + 1);
+            Debug.Log(progressData.latestLevel);
             SceneManager.LoadScene((int)Level.LevelFinishedUI, LoadSceneMode.Additive);
         } else
         {

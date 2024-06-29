@@ -637,6 +637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7b23984366bcc4fbae884585bd1bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progress: {fileID: 11400000, guid: 5db981d6ade6a674da51e8ea624e45d2, type: 2}
   sprites:
   - {fileID: 21300000, guid: 393ee525d94923843bf77b88cbe4b021, type: 3}
   - {fileID: 21300000, guid: 0a1dffc08949e6549b1aa206e678e23f, type: 3}
@@ -1972,6 +1973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7b23984366bcc4fbae884585bd1bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progress: {fileID: 11400000, guid: 5db981d6ade6a674da51e8ea624e45d2, type: 2}
   sprites:
   - {fileID: 21300000, guid: 393ee525d94923843bf77b88cbe4b021, type: 3}
   - {fileID: 21300000, guid: 0a1dffc08949e6549b1aa206e678e23f, type: 3}
@@ -11799,6 +11801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e7258dcfed39a4495583e42c64601d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progress: {fileID: 11400000, guid: 5db981d6ade6a674da51e8ea624e45d2, type: 2}
   Flower1Order: {fileID: 1482753443}
   Flower2Order: {fileID: 1161349156}
   Flower3Order: {fileID: 668298017}
@@ -12970,6 +12973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e7258dcfed39a4495583e42c64601d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progress: {fileID: 11400000, guid: 5db981d6ade6a674da51e8ea624e45d2, type: 2}
   Flower1Order: {fileID: 1055276053}
   Flower2Order: {fileID: 210916711}
   Flower3Order: {fileID: 180796125}

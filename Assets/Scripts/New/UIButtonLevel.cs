@@ -24,18 +24,18 @@ public class UIButtonLevel : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public static void NextLevel()
+    public void NextLevel()
     {
         SceneManager.LoadScene((int)SOGameProgress.latestLevel);
     }
 
-    public static void Retry()
+    public void Retry()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene((int)SOGameProgress.currentLevel);
     }
 
-    public static void ResumeLevel()
+    public void ResumeLevel()
     {
         Time.timeScale = 1f;
         Debug.Log(SOGameProgress.latestLevel);
