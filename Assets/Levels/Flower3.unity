@@ -177,6 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 168235999}
   - component: {fileID: 168236000}
+  - component: {fileID: 168236001}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -295,6 +296,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &168236001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168235998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5536f3f5dc07cf145bbc5393e272fba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 168236000}
+  SOGameProgress: {fileID: 11400000, guid: 5db981d6ade6a674da51e8ea624e45d2, type: 2}
 --- !u!1001 &180816356
 PrefabInstance:
   m_ObjectHideFlags: 0

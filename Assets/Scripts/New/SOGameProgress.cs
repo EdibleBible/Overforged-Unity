@@ -19,6 +19,7 @@ public class SOGameProgress : ScriptableObject
     public PlayerSkins player2Skin = PlayerSkins.DefaultBlue;
     public bool toggleMultiplayer = true;
     public List<bool> skinUnlocked = new();
+    public float audioVolume = 1;
 
     private void OnEnable()
     {
