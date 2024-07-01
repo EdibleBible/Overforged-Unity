@@ -585,7 +585,7 @@ MonoBehaviour:
   requiredScore: 0
   levelTime: 180
   level: 0
-  progressData: {fileID: 0}
+  progressData: {fileID: 11400000, guid: 5db981d6ade6a674da51e8ea624e45d2, type: 2}
   levelScore: 0
 --- !u!1 &832575517
 GameObject:
