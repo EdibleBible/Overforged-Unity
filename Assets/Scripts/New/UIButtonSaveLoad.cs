@@ -25,7 +25,7 @@ public class UIButtonSaveLoad : MonoBehaviour
 
     private void OnEnable()
     {
-        if (buttonType == SaveLoad.Load && (!File.Exists(saveFilePath) || settings.latestSaveFile == saveFileIndex))
+        if (buttonType == SaveLoad.Load && (!File.Exists(saveFilePath) /*|| settings.latestSaveFile == saveFileIndex */))
         {
             loadButton.interactable = false;
         }

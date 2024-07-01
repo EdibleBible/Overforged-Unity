@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioVolumeAdjust : MonoBehaviour
 {
     public AudioSource source;
-    public SOGameProgress SOGameProgress;
+    public SOSettings settings;
 
     private void Awake()
     {
@@ -14,6 +14,6 @@ public class AudioVolumeAdjust : MonoBehaviour
 
     public void UpdateAudioVolume()
     {
-        source.volume = SOGameProgress.audioVolume;
+        source.volume = settings.audioVolume;
     }
 }

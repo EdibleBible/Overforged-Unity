@@ -623,7 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 124094228}
-  SOGameProgress: {fileID: 11400000, guid: 5db981d6ade6a674da51e8ea624e45d2, type: 2}
+  settings: {fileID: 11400000, guid: 3b40b2ca2b359eb40be8adf8b1fa23b4, type: 2}
 --- !u!1001 &129090654
 PrefabInstance:
   m_ObjectHideFlags: 0

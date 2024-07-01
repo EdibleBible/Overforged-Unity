@@ -18,20 +18,8 @@ public class SOGameProgress : ScriptableObject
     public PlayerSkins player1Skin = PlayerSkins.Default;
     public PlayerSkins player2Skin = PlayerSkins.DefaultBlue;
     public bool toggleMultiplayer = true;
-    public List<bool> skinUnlocked = new();
+    public List<bool> skinUnlocked = new(){ true, true, false, false, false, false, false, false };
     public float audioVolume = 1;
-
-    private void OnEnable()
-    {
-        skinUnlocked.Add(true);
-        skinUnlocked.Add(true);
-        skinUnlocked.Add(false);
-        skinUnlocked.Add(false);
-        skinUnlocked.Add(false);
-        skinUnlocked.Add(false);
-        skinUnlocked.Add(false);
-        skinUnlocked.Add(false);
-    }
 
     public void EquipSkin1(int skinInt)
     {
